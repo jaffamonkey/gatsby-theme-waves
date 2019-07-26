@@ -50,11 +50,11 @@ superagent
   .end((err, res) => {
     assert.ifError(err);
     assert.equal(res.status, 200);
-    console.log('Status Code Returned: ' + res.status)
-  });
+    console.log('Result: ' + res.text)
+    });
 
 $ node test-api.js
-Status Code Returned:200
+Result: {"success":"true","message":"todos retrieved successfully","todos":[{"id":1,"title":"example"}]}
 ```
 
 Writing test code is easier, and there is a raft of packages to help you ... or hinder you. The API test is a very basic example, but step up to UI tests (with reporting) and already complexitiy increases.
