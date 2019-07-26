@@ -22,7 +22,7 @@
     "gatsby-plugin-theme-ui": "^0.2.6",
     "gatsby-remark-images": "^3.1.7",
     "gatsby-theme-blog": "^1.0.2",
-    "gatsby-theme-waves": "*",
+    "gatsby-theme-waves": "0.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "theme-ui": "^0.2.14"

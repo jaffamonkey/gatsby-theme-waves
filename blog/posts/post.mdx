@@ -1,4 +1,5 @@
 ---
+blog-title: jaffamonkey
 title: Quality engineering
 ---
 
@@ -10,6 +11,7 @@ Quality engineering is about improving quality across the project, not just dogm
 With the challenges of many company cultures I have developed my own pragmatic approach to improving software quality - it's always possible.
 
 Test automation is only part of the path that leads to better quality with CI and CD.
+![alt text](deploy.png "Logo Title Text 1")
 <CodeWave>
 
 ```bash
@@ -43,10 +45,29 @@ Sometimes investing is a feature-rich test framework is a good idea.
 
 A test framework that is well-thought out and maintained, will retain usefulness for the whole team.
 
+```bash 15:17
+$ npm install -g assert superagent
+
+// test-api.js
+const superagent = require('superagent');
+const assert = require('assert');
+
+superagent
+  .get('http://localhost:3001/api/v1/todos')
+  .end((err, res) => {
+    assert.ifError(err);
+    assert.equal(res.status, 200);
+    console.log('Result: ' + res.text)
+    });
+
+$ node test-api.js
+Result: {"success":"true","message":"todos retrieved successfully","todos":[{"id":1,"title":"example"}]}
+```
+
 But if you have the build pipepline in sights, then you had better make sure tests run as lean (fast) as possible.
 
 Test engineering is where Testing meets (Dev)Ops!
-```bash
+```bash 1:13
 $ npm install -g assert superagent
 
 // test-api.js
