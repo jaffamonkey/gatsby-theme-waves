@@ -9,6 +9,7 @@ Quality engineering is about improving quality across the project, not just dogm
 
 With the challenges of many company cultures I have developed my own pragmatic approach to improving software quality - it's always possible.
 
+Test automation is only part of the path that leads to better quality with CI and CD.
 <CodeWave>
 
 ```bash
@@ -36,8 +37,15 @@ $ curl -s -v -o /dev/null -I -w "%{http_code}" http://jaffamonkey.com
 
 ## Test Engineering
 
-It's all about what's appropriate. Sometimes investing is a feature-rich test framework is a good idea. But if you have the build pipepline in sights, then you had better make sure tests run as lean (fast) as possible.
+It's all about what's appropriate, to both development and business sides to a project.
 
+Sometimes investing is a feature-rich test framework is a good idea. 
+
+A test framework that is well-thought out and maintained, will retain usefulness for the whole team.
+
+But if you have the build pipepline in sights, then you had better make sure tests run as lean (fast) as possible.
+
+Test engineering is where Testing meets (Dev)Ops!
 ```bash
 $ npm install -g assert superagent
 
@@ -57,9 +65,17 @@ $ node test-api.js
 Result: {"success":"true","message":"todos retrieved successfully","todos":[{"id":1,"title":"example"}]}
 ```
 
-Writing test code is easier, and there is a raft of packages to help you ... or hinder you. The API test is a very basic example, but step up to UI tests (with reporting) and already complexitiy increases.
+#### Code or Not Code
 
-More important that writing a lot of automated tests, is continually adapting and adding automated tests on-demand, to ensure the regular daily builds have quality control.
+Writing test code is easier, and there is a raft of packages to help you ... or hinder you. 
+
+Start with too many packages, then you will quickly end up with an unused test framework.
+
+Start small - don't use a package if it can be coded natively.
+
+Conversely, don't waste too much time on native code - packages are there too help you, just be selective.
+
+The API test is a very basic example, but step up to UI tests (with reporting) and already complexitiy increases.
 
 ```markdown
 * Quality assurance blurb 
@@ -75,7 +91,6 @@ More important that writing a lot of automated tests, is continually adapting an
 
 * Continual review of quality efforts, at all stages of the project pipeline.
 
-## 
 * Encourages the business to think outside of requirements, and understand the beenfits of an exploratory mindset.
 
 ```markdown
