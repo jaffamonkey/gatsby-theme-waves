@@ -4,6 +4,7 @@ module.exports = {
     title: `jaffamonkey`,
     // Used to provide alt text for your avatar
     author: `Paul Littlebury`,
+    bio: 'quality',
     // Used for SEO
     description: `Quality`,
     // Used for social links in the root footer
@@ -18,37 +19,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    "gatsby-plugin-theme-ui",
-    `gatsby-plugin-sharp`,
-    "gatsby-theme-waves",
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-      },
-    },
-    {
-      resolve: `gatsby-theme-blog`,
-      options: {
-        basePath: `/blog`,
-        contentPath: `blog/posts`,
-        assetsPath: `blog/assets`,
-        mdx: false,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1200,
-            },
-          },
-        ],
-      },
-    },
-  ],
-}
+  plugins: [`gatsby-theme-blog`, `gatsby-theme-waves`]
+};
