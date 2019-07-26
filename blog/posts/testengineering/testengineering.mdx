@@ -1,17 +1,16 @@
 ---
 blog-title: jaffamonkey
-title: Quality engineering
+title: Test engineering
 ---
 
 import { CodeWave } from "gatsby-theme-waves"
 
 ---
-Quality engineering is about improving quality across the project, not just dogmatically automating requirements tests.
 
-With the challenges of many company cultures I have developed my own pragmatic approach to improving software quality - it's always possible.
+## Test automation
 
 Test automation is only part of the path that leads to better quality with CI and CD.
-![alt text](deploy.png "Logo Title Text 1")
+
 <CodeWave>
 
 ```bash
@@ -37,7 +36,7 @@ $ curl -s -v -o /dev/null -I -w "%{http_code}" http://jaffamonkey.com
 * Connection #0 to host jaffamonkey.com left intact
 ```
 
-## Test Engineering
+## How to test
 
 It's all about what's appropriate, to both development and business sides to a project.
 
@@ -86,7 +85,7 @@ $ node test-api.js
 Result: {"success":"true","message":"todos retrieved successfully","todos":[{"id":1,"title":"example"}]}
 ```
 
-#### Code or Not Code
+## Native code or package?
 
 Writing test code is easier, and there is a raft of packages to help you ... or hinder you. 
 
@@ -97,50 +96,5 @@ Start small - don't use a package if it can be coded natively.
 Conversely, don't waste too much time on native code - packages are there too help you, just be selective.
 
 The API test is a very basic example, but step up to UI tests (with reporting) and already complexitiy increases.
-
-```markdown
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-```
-
-## Quality assurance
-
-* Continual review of quality efforts, at all stages of the project pipeline.
-
-* Encourages the business to think outside of requirements, and understand the beenfits of an exploratory mindset.
-
-```markdown
-Some coaching blurb
-Some coaching blurb
-Some coaching blurb
-Some coaching blurb
-Some coaching blurb
-Some coaching blurb
-Some coaching blurb
-```
-
-## Coaching
-
-* We can show your team how to do Quality Engineering, from the ground up with training that is customed to your project needs.
-
-```markdown
-Some training blurb
-Some training blurb
-Some training blurb
-Some training blurb
-Some training blurb
-Some training blurb
-Some training blurb
-```
-
-## Training courses
-
-* We also provide training for more advanced software engineering coding and approaches.
-* We can combine training with real project work,to maximise the value of the training.
 
 </CodeWave>

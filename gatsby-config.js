@@ -21,6 +21,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-theme-ui",
     `gatsby-plugin-sharp`,
+    "gatsby-theme-waves",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -49,6 +50,5 @@ module.exports = {
         ],
       },
     },
-    "gatsby-theme-waves",
   ],
 }
