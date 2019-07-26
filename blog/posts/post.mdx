@@ -11,16 +11,55 @@ With the challenges of many company cultures I have developed my own pragmatic a
 
 <CodeWave>
 
-```markdown
-* Cucumber
-* Docker
-* Selenium
-* Puppeteer
+```bash
+$ curl -s -v -o /dev/null -I -w "%{http_code}" http://jaffamonkey.com
+*   Trying 35.169.225.248...
+* TCP_NODELAY set
+* Expire in 149999 ms for 3 (transfer 0x55a114e985c0)
+* Expire in 200 ms for 4 (transfer 0x55a114e985c0)
+* Connected to jaffamonkey.com (35.169.225.248) port 80 (#0)
+> HEAD / HTTP/1.1
+> Host: jaffamonkey.com
+> User-Agent: curl/7.64.0
+> Accept: */*
+> 
+< HTTP/1.1 301 Moved Permanently
+< Date: Fri, 26 Jul 2019 11:49:40 GMT
+< Connection:Keep-Alive
+< Content-Length: 0
+< Cache-Control: private, no-cache, no-store, max-age=0
+< Expires: Mon, 01 Jan 1990 0:00:00 GMT
+< Location: https://jaffamonkey.netlify.com
+< 
+* Connection #0 to host jaffamonkey.com left intact
 ```
 
 ## Test Engineering
 
-* Continually adapting and adding automated tests on-demand, to ensure the regular daily builds have quality control.
+It's all about what's appropriate. Sometimes investing is a feature-rich test framework is a good idea. But if you have the build pipepline in sights, then you had better make sure tests run as lean (fast) as possible.
+
+```bash
+$ npm install -g assert superagent
+
+// test-api.js
+const superagent = require('superagent');
+const assert = require('assert');
+
+superagent
+  .get('http://localhost:3001/api/v1/todos')
+  .end((err, res) => {
+    assert.ifError(err);
+    assert.equal(res.status, 200);
+    console.log('Status Code Returned: ' + res.status)
+  });
+
+$ node test-api.js
+Status Code Returned:200
+```
+
+Writing test code is easier, and there is a raft of packages to help you ... or hinder you. The API test is a very basic example, but step up to UI tests (with reporting) and already complexitiy increases.
+
+More important that writing a lot of automated tests, is continually adapting and adding automated tests on-demand, to ensure the regular daily builds have quality control.
 
 ```markdown
 * Quality assurance blurb 
