@@ -4,7 +4,6 @@ module.exports = {
     title: `jaffamonkey`,
     // Used to provide alt text for your avatar
     author: `Paul Littlebury`,
-    bio: 'quality',
     // Used for SEO
     description: `Quality`,
     // Used for social links in the root footer
@@ -17,7 +16,12 @@ module.exports = {
         name: `github`,
         url: `https://github.com/jaffamonkey`,
       },
+      {
+        name: `email`,
+        url: `mailto:paullittlebury@gmail.com`,
+      }
     ],
   },
-  plugins: [`gatsby-theme-blog`, `gatsby-theme-waves`]
+  plugins: [
+    `gatsby-theme-blog`, `gatsby-theme-waves`]
 };
