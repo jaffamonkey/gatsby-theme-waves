@@ -25,6 +25,10 @@ module.exports = {
         url: `sms:+6612345678?body=`,
       },
       {
+        name: `call`,
+        url: `tel:+660123456789`,
+      },
+      {
         name: `email (if you must)`,
         url: `mailto:paullittlebury@gmail.com`,
       }
