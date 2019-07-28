@@ -7,23 +7,37 @@ import { CodeWave } from "gatsby-theme-waves"
 
 ---
 
-## Quality assurance
+### Improve quality efforts, in all project areas.
 
 <CodeWave>
 
 ```markdown
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
+ +-------+      +-------------+
+ | BEGIN >---+  |             |                    
+ +-------+   +--> Do you need |                    
+                | to make a   N------+             
+       +--------Y flowchart?  |      |             
+       |        |             |      |             
+       |        +-------------+      |             
+       |                             |             
+       |         +------------+      |             
+       |         |            |      |             
+ +-----V-------+ | So use it. |      |             
+ |             | |            |      |             
+ | Then my     | +--^---V-----+      |             
+ | module may  |    |   |            |             
+ | help.       |    |   |            |             
+ |             >----+   |            |             
+ +-------------+        |            |              
+                        |      +-----V-------+     
+                        |      |             |     
+                        |      | Then go do  |     
+                        +------> something   |     
+                               | else.       |     
+                               |             |  
 ```
 
 ## Continual improvement
-
-Continual review of quality efforts, at all stages of the project pipeline.
 
 The rush to automate CI/CD pipelines can leave some behind, and if not documented will be difficult for new people to pick up.
 
@@ -33,19 +47,22 @@ Encouraging the business to think outside of simple user stories is a good first
 
 _Remember that just because a CI/CD pipeline is working well, it does not mean it is doing a good job_ 
 
-```markdown
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
-* Quality assurance blurb 
+```gherkin
+Feature: Testing the test website
+  
+  Scenario: Testing searching
+    Given I am on test website homepage
+    And I fill in the search field with "donald trump simulator"
+    When I click the search button
+    And the page title is "donald trump simulator site:github.com at DuckDuckGo"
+    Then the first search result should contain "Donald Trump"
 ```
 
 ## First steps
 
-Continual review of quality efforts, at all stages of the project pipeline.
-Encourages the business to think outside of requirements, and understand the beenfits of an exploratory mindset.
+* Encourage Products Owners to adopt different approach to requirements.
+* Keep areas such as security, load, accessibility and browser/device compatibility in focus early on.
+* Continual review of quality efforts, at all stages of the project pipeline.
+* Encouraging the business to think outside of requirements, and understand the benefits of an exploratory mindset.
 
 </CodeWave>
