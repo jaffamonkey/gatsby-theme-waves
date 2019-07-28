@@ -32,14 +32,42 @@ The defaults are ok, but remember to select to add README to add repo info.
 
 ![Create a github repo](./images/repo-form.png)
 
-Webpage
-=======
+## Webpage
 
-## Create first HTML page
+### Create first HTML page
 
 After creating repo, click "Create New File" and enter filename `index.html`
 
+![Create a github repo](./images/create-new-file.png)
+
 <CodeWave>
+
+```html 1
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+> Now we can start the coding!
+
+> Scroll down to see lines of code highlighted, alongside explanations.
 
 ```html 1
 <!DOCTYPE html>
@@ -381,10 +409,11 @@ What many testers forget, is that most developers welcome dialogue with testers,
   "author": "jaffamonkey <paullittlebury@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "chromedriver": "^2.46.0"
+    "chromedriver": "^2.46.0",
+    "selenium-webdriver": "^3.5.0"
   },
   "scripts": {
-    "test": "node ./tests.js"
+    "test": "node ./test.js"
   }
 }
 ```
@@ -651,8 +680,7 @@ So now create a branch called `travis-ci`, which will be used by Travis CI
 * Type a branch name, readme-edits, into the new branch text box.
 * Select the blue Create branch box or hit “Enter” on your keyboard.
 
-Travis Build Server
-===================
+## Travis Build Server
 
 [Go to TravisCI](https://travis-ci.org)
 
@@ -671,11 +699,9 @@ Basically all we have to do, is take the exact steps you did in the previous sec
 
 ## The Travis file
 
-We need to write small configuration file, so that when Travis pulls the code from your GitHub repo, it knows what to do.
+<CodeWave>
 
-The file is very simple for us, so create new file in your repo called `.travis.yml`
-
-```
+```bash
 sudo: required // Some installation actions require administrator-level access
 dist: trusty // Builds a mininal machine to runs tests on
 
@@ -699,8 +725,13 @@ before_script:
 script:
   - node test.js // run the tests
 ```
+> We need to write small configuration file, so that when Travis pulls the code from your GitHub repo, it knows what to do.
 
-After these steps are all in your code, and committed, a build process will automatically start on TravisCI
+> The file is very simple for us, so create new file in your repo called `.travis.yml`
+
+> After these steps are all in your code, and committed, a build process will automatically start on TravisCI
+
+</CodeWave>
 
 ## After build
 
@@ -714,7 +745,7 @@ Go to your dashboard and search for your repo
 
 Then move switch on right so it turns green - your repo will now run through and build and test every time you change your code on GitHub.
 
-![Add Repo](./travis-success.png)
+![Add Repo](./images/travis-add-repo.png)
 
 ## Activate Travis build badge to your README
 
