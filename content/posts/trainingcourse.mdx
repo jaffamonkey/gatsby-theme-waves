@@ -1,13 +1,13 @@
 ---
 blog-title: jaffamonkey
-title: Training course
+title: Test engineering workhop
 ---
 
 import { CodeWave } from "gatsby-theme-waves"
 
 ---
 
-_Part of the "zero to vanilla web developer and test engineer" workshop (zero, as in zero prior knowledge)_
+_Part of the "zero to vanilla quality engineer" workshop (zero, as in zero prior knowledge)_
 
 I have tried to use as few tools and helpers as possible to demonstrate a UI testing framework using only selenium-webdriver and chromedriver. And coding will be in JavaScript, though what follows can be done in other programming languages. The only either requirement is having Node and Git installed.
 
@@ -39,20 +39,323 @@ Webpage
 
 After creating repo, click "Create New File" and enter filename `index.html`
 
-![Repo Form](./images/create-new-file.png)
+<CodeWave>
 
-## Add HTML
+```html 1
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
 
-After adding the code, click "Commit Changes" at the end of the form to save it.
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
 
-![Repo Form](./images/code-form.png)
+> DOCTYPE tells the web browser about what version of HTML the page is written in (in this case HTML5)
+
+```html 2
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+
+> The html element tag is called the root element because it contains all the elements in the document
+
+```html 3:5
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+
+> The head element tag contains descriptive information about the document itself, such as its title
+
+```html 7,20
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+> The body element tag contains everything that we want to show up in the browser window.
+
+```html 11:15
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+> Simple form example.
+
+```html 12
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+> A text field definition for our search
+
+```html 13
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+
+> Add a pre-filled form field value that will be processed with your search terms entered in previous field.
+
+```html 14
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+
+> Add a button element with label text, to submit the form.
+
+```html 17
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+> A basic text hyperlink.
+
+```html 19
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+
+> Insert an image, "src" value is the path to image file.
+
+```html 20
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+
+> The closing tag for "body".
+
+```html 21
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A simple website</title>
+</head>
+
+<body>
+    <h1>Example use of [h1] element tag</h1>
+    <p>Example use of [p] element tag</p>
+    <p>A basic form to test search github.com using DuckDuckGo search engine</p>
+    <form action="https://duckduckgo.com/">
+        <input type="text" name="q" class="searchform">
+        <input type="hidden" name="sites" value="github.com">
+        <button id="searchButton" type="submit">Search</button>
+    </form>
+    <h3>Example use of [h3] element tag</h3>
+    <a href="https://duckduckgo.com">A test link</a>
+    <h4>Example image</h4>
+    <img src="test.png" alt="example image"/>
+</body>
+</html>
+```
+
+> The closing tag for `<html>`.
+
+</CodeWave>
+
+## Testing
 
 Now we have a basic web page to test on!
 
-Testing
-=======
-
-## What to test?
+### What to test?
 
 On software development projects, testing work is driven by what the client has asked for.  
 
@@ -68,31 +371,46 @@ What many testers forget, is that most developers welcome dialogue with testers,
 
 ## Set up the testing framework
 
-For convenience to install packages, it is better to create a file `package.json` in the root of your repo, like shown here, then run `npm install`.
+<CodeWave>
 
-![Repo Form](./images/package-json.png) |
+```json
+{
+  "name": "javascript-chromedriver-test",
+  "description": "JavaScript and Chromedriver test",
+  "version": "1.0.0",
+  "author": "jaffamonkey <paullittlebury@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chromedriver": "^2.46.0"
+  },
+  "scripts": {
+    "test": "node ./tests.js"
+  }
+}
+```
+
+> For convenience to install packages, it is better to create a file `package.json` in the root of your repo, like shown here, then run `npm install`.
+
+```bash
+$ npm install
+```
+
+> To install/setup
+
+</CodeWave>
 
 ## The test file
 
-Although the purpose of tests varies, the context is similar:
-
-1. I do something
-2. Something happens
-
-So test steps are (simplified) an action followed by consequence(s) - the consequence is how we verify is a test has passed or failed.
 
 Create a new file in 'tests' folder called `test.js`. When this code is run, it first fires up Chromes browser, then excecutes the actions in the script.
 
-As a start, this line will mean Chrome will run the automated tests without UI (good for speed). `headless` means no browser will be visible on screen. `disable-gpu` means disable graphics acceleration for Chrome.
+<CodeWave>
 
-```
-// Include chromedriver
-require('chromedriver');
-
-// The easiest way to look at this, is it's creating an object that's webdriver.
+```js
 var webdriver = require('selenium-webdriver'),
   By = webdriver.By,
   until = webdriver.until;
+var errorMessage = 'Could not locate the correct ';
 
 // This is creating an object that is the browser
 const browser = new webdriver
@@ -101,81 +419,226 @@ const browser = new webdriver
   .withCapabilities({
     'browserName': 'chrome',
     'chromeOptions': {
-      args: ["headless", "disable-gpu"]
+      args: ['headless', 'disable-gpu']
     }
   }).build();
 
-
 try {
-  // This line is telling the browser to open a url.
   browser.get('http://localhost:8081');
-
-  // Now the search field is filled in with our search terms, after the field becomes visible (allowing for page load time).
-  browser.wait(until.elementLocated(By.name('q')), 3000, 'Could not locate the search field').sendKeys('TrumpKlon');
-
-  // Now we click the search button, after the button becomes visible.
-  browser.wait(until.elementLocated(By.id('searchButton')), 3000, 'Could not locate the search button').click();
-
-  // This looks for a link text that includes "Trumpklon", which is the expected result.
-  browser.wait(until.elementLocated(By.partialLinkText('TrumpKlon')), 3000, 'Could not locate correct link');
-
-  // Now checking that the page title is what is expected.
-  browser.wait(until.titleIs('TrumpKlon site:github.com at DuckDuckGo'), 3000, 'Could not locate correct title').then(() => {
-
-    // Output success message to screen. For this to happens if the previous steps have all run successfully.
-    console.log('Browser test passed!');
-  })
+  browser.wait(until.elementLocated(By.name('q')), 3000, errorMessage + 'field').sendKeys('TrumpKlon');
+  browser.wait(until.elementLocated(By.id('searchButton')), 3000, errorMessage + 'button').click();
+  browser.wait(until.titleIs('TrumpKlon site:github.com at DuckDuckGo'), 3000, errorMessage + 'title')
+  browser.wait(until.elementLocated(By.partialLinkText('TrumpKlon')), 3000, errorMessage + 'link');
+}
+catch (err) {
+  console.log(err)
+  return false;
 }
 finally {
-
-  // Close all of the open browser windows, then stop chromedriver.
   browser.quit();
 }
 ```
-## Too much too soon!
+> Although the purpose of tests varies, the context is similar:
 
-This can look more daunting, but the test code is mostly standard setup, though if you are new to this, it can look daunting. Don't worry! We all learn in steps, and most of this code is either standard setup or common predefined functions.  What you will be glad to know, is there are many tools available to simplify the code you write tests in.
+> 1. I do something
+> 2. Something happens
 
-### Some examples explained
+> So test steps are (simplified) an action followed by consequence(s) - the consequence is how we verify is a test has passed or failed.
 
-**Open up url**
+> Now lets look at the lines of code in more detail ...
+
+```js 1:3
+var webdriver = require('selenium-webdriver'),
+  By = webdriver.By,
+  until = webdriver.until;
+var errorMessage = 'Could not locate the correct ';
+
+// This is creating an object that is the browser
+const browser = new webdriver
+  .Builder()
+  .usingServer()
+  .withCapabilities({
+    'browserName': 'chrome',
+    'chromeOptions': {
+      args: ['headless', 'disable-gpu']
+    }
+  }).build();
+
+try {
+  browser.get('http://localhost:8081');
+  browser.wait(until.elementLocated(By.name('q')), 3000, errorMessage + 'field').sendKeys('TrumpKlon');
+  browser.wait(until.elementLocated(By.id('searchButton')), 3000, errorMessage + 'button').click();
+  browser.wait(until.titleIs('TrumpKlon site:github.com at DuckDuckGo'), 3000, errorMessage + 'title')
+  browser.wait(until.elementLocated(By.partialLinkText('TrumpKlon')), 3000, errorMessage + 'link');
+}
+catch (err) {
+  console.log(err)
+  return false;
+}
+finally {
+  browser.quit();
+}
 ```
-browser.get('http://localhost:8081');
+> The easiest way to look at this, is it's creating an object that's webdriver.  Chrome will run the automated tests without UI (good for speed). `headless` means no browser will be visible on screen. `disable-gpu` means disable graphics acceleration for Chrome.
+
+```js 7:15
+var webdriver = require('selenium-webdriver'),
+  By = webdriver.By,
+  until = webdriver.until;
+
+var errorMessage = 'Could not locate the correct ';
+
+const browser = new webdriver
+  .Builder()
+  .usingServer()
+  .withCapabilities({
+    'browserName': 'chrome',
+    'chromeOptions': {
+      args: ['headless', 'disable-gpu']
+    }
+  }).build();
+
+try {
+  browser.get('http://localhost:8081');
+  browser.wait(until.elementLocated(By.name('q')), 3000, errorMessage + 'field').sendKeys('TrumpKlon');
+  browser.wait(until.elementLocated(By.id('searchButton')), 3000, errorMessage + 'button').click();
+  browser.wait(until.titleIs('TrumpKlon site:github.com at DuckDuckGo'), 3000, errorMessage + 'title')
+  browser.wait(until.elementLocated(By.partialLinkText('TrumpKlon')), 3000, errorMessage + 'link');
+}
+catch (err) {
+  console.log(err)
+  return false;
+}
+finally {
+  browser.quit();
+}
 ```
-**Wait for field to be visible, then fill in field with a value***
+> This is creating an object that is the browser.
+
+```js 17:23
+var webdriver = require('selenium-webdriver'),
+  By = webdriver.By,
+  until = webdriver.until;
+
+var errorMessage = 'Could not locate the correct ';
+
+const browser = new webdriver
+  .Builder()
+  .usingServer()
+  .withCapabilities({
+    'browserName': 'chrome',
+    'chromeOptions': {
+      args: ['headless', 'disable-gpu']
+    }
+  }).build();
+
+try {
+  browser.get('http://localhost:8081');
+  browser.wait(until.elementLocated(By.name('q')), 3000, errorMessage + 'field').sendKeys('TrumpKlon');
+  browser.wait(until.elementLocated(By.id('searchButton')), 3000, errorMessage + 'button').click();
+  browser.wait(until.titleIs('TrumpKlon site:github.com at DuckDuckGo'), 3000, errorMessage + 'title')
+  browser.wait(until.elementLocated(By.partialLinkText('TrumpKlon')), 3000, errorMessage + 'link');
+}
+catch (err) {
+  console.log(err)
+  return false;
+}
+finally {
+  browser.quit();
+}
 ```
-browser.wait(until.elementLocated(By.name('q')), 10000, 'Could not locate').sendKeys('TrumpKlon');
+> This is the script,  the first line opens up the url, the next lines locate an element and perform an action.
+
+```js 24:27
+var webdriver = require('selenium-webdriver'),
+  By = webdriver.By,
+  until = webdriver.until;
+
+var errorMessage = 'Could not locate the correct ';
+
+const browser = new webdriver
+  .Builder()
+  .usingServer()
+  .withCapabilities({
+    'browserName': 'chrome',
+    'chromeOptions': {
+      args: ['headless', 'disable-gpu']
+    }
+  }).build();
+
+try {
+  browser.get('http://localhost:8081');
+  browser.wait(until.elementLocated(By.name('q')), 3000, errorMessage + 'field').sendKeys('TrumpKlon');
+  browser.wait(until.elementLocated(By.id('searchButton')), 3000, errorMessage + 'button').click();
+  browser.wait(until.titleIs('TrumpKlon site:github.com at DuckDuckGo'), 3000, errorMessage + 'title')
+  browser.wait(until.elementLocated(By.partialLinkText('TrumpKlon')), 3000, errorMessage + 'link');
+}
+catch (err) {
+  console.log(err)
+  return false;
+}
+finally {
+  browser.quit();
+}
 ```
-**Locating the element that has name "search", then click**
+> Any errors caught while performing steps above will output error detail returned to screen.
+
+```js 28:30
+var webdriver = require('selenium-webdriver'),
+  By = webdriver.By,
+  until = webdriver.until;
+
+var errorMessage = 'Could not locate the correct ';
+
+const browser = new webdriver
+  .Builder()
+  .usingServer()
+  .withCapabilities({
+    'browserName': 'chrome',
+    'chromeOptions': {
+      args: ['headless', 'disable-gpu']
+    }
+  }).build();
+
+try {
+  browser.get('http://localhost:8081');
+  browser.wait(until.elementLocated(By.name('q')), 3000, errorMessage + 'field').sendKeys('TrumpKlon');
+  browser.wait(until.elementLocated(By.id('searchButton')), 3000, errorMessage + 'button').click();
+  browser.wait(until.titleIs('TrumpKlon site:github.com at DuckDuckGo'), 3000, errorMessage + 'title')
+  browser.wait(until.elementLocated(By.partialLinkText('TrumpKlon')), 3000, errorMessage + 'link');
+}
+catch (err) {
+  console.log(err)
+  return false;
+}
+finally {
+  browser.quit();
+}
 ```
-browser.wait(until.elementLocated(By.name('search')), 10000, 'Could not locate').click();
-```
-**Wait for search results to load**
-```
-browser.wait(until.elementLocated(By.css('.result__snippet')), 10000, 'Could not locate');
-```
+
+> Close browser session.
+
+</CodeWave>
 
 ## Run the tests
 
-#### Start the website environment up
+<CodeWave>
 
-Open new Terminal tab
-```
-// This starts the Node web server
-node ./web/server.js
-```
-
-#### Start the chromedriver (now ready to automate browser actions)
-
-Open new Terminal tab
-```
-your-repo-name>cd tests
+```bash 1
+node ./web/server.js &
 your-repo-name/tests>./node_modules/.bin/chromedriver
-```
-#### Now run the tests
-```
 your-repo-name/tests>node test.js
 ```
+> Start the website environment up (in background)
+
+```bash 2
+node ./web/server.js &
+your-repo-name/tests>node test.js
+```
+
+> Now run the tests
+
+</CodeWave>
 
 ## Branching
 
@@ -254,13 +717,18 @@ Then move switch on right so it turns green - your repo will now run through and
 ![Add Repo](./travis-success.png)
 
 ## Activate Travis build badge to your README
-Add the following code to your README, and it will display the lastest Travis status for your code:
 
-```
+<CodeWave>
+
+```markdown
 [![Build Status]
 (https://travis-ci.org/replace-this-with-your-github-userid/replace-this-with-your-repo-name.svg?branch=master)]
 (https://travis-ci.org/replace-this-with-your-github-userid/replace-this-with-your-repo-name)
 ```
+
+> Add the following code to your README, and it will display the lastest Travis status for your code:
+
+</CodeWave>
 
 Deployment
 =======
@@ -295,9 +763,9 @@ Leave defaults, and click "Deploy site"
 
 ## Deploy history
 
-Below is the output from the Netlify process to make you site live
+<CodeWave>
 
-```
+```bash
 1:32:38 AM: Waiting to build. Currently running 1 concurrent builds on your account
 1:32:38 AM: Build ready to start
 1:32:40 AM: build-image version: 324ec043422499a87b63cac1f1dabeefe6dca19d
@@ -318,6 +786,10 @@ Below is the output from the Netlify process to make you site live
 1:32:42 AM: Post processing done
 1:32:43 AM: Site is live
 ```
+> The output from the Netlify process to make you site live
+
+</CodeWave>
+
 # The code
 
 The code for this workshop is on github:
