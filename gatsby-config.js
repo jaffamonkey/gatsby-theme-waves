@@ -22,11 +22,11 @@ module.exports = {
       },
       {
         name: `sms`,
-        url: `sms:+6612345678?body=`,
+        url: `sms:+447739670315`,
       },
       {
         name: `call`,
-        url: `tel:+660123456789`,
+        url: `tel:+447739670315`,
       },
       {
         name: `email (if you must)`,
