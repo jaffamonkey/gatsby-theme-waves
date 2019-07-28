@@ -22,9 +22,9 @@ const Footer = ({ socialLinks }) => (
     ))}
     <Fragment>
       <br /><br />
-      <Styled.div><img class ="gatsby-image-wrapper" src="./images/code/java-plain.png" width="40"/><img class ="gatsby-image-wrapper" src="./images/code/javascript-plain.png" width="40" /><img class ="gatsby-image-wrapper" src="./images/code/php-plain.png" width="40" /><img class ="gatsby-image-wrapper" src="./images/code/python-plain.png" width="40" /><img class ="gatsby-image-wrapper" src="./images/code/swift-plain.png" width="40" /></Styled.div>
+      <Styled.h1><img class ="gatsby-image-wrapper" src="./images/code/java.svg" width="40"/><img class ="gatsby-image-wrapper" src="./images/code/js.svg" width="40" /><img class ="gatsby-image-wrapper" src="./images/code/php.svg" width="40" /><img class ="gatsby-image-wrapper" src="./images/code/python.svg" width="40" /><img class ="gatsby-image-wrapper" src="./images/code/swift.svg" width="40" /></Styled.h1>
       <br /><br />
-      <Styled.h6>© 2019 jaffamonkey B.V. (KVK 71855157) Vestigingsnr: 1012 RP Amsterdam</Styled.h6>
+      <Styled.h5>© 2019 jaffamonkey B.V. (KVK 71855157) Vestigingsnr: 1012 RP Amsterdam</Styled.h5>
     </Fragment>
 
   </footer>

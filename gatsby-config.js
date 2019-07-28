@@ -17,7 +17,15 @@ module.exports = {
         url: `https://github.com/jaffamonkey`,
       },
       {
-        name: `email`,
+        name: `linkedin`,
+        url: `https://www.linkedin.com/in/jaffamonkey`,
+      },
+      {
+        name: `sms`,
+        url: `sms:+6612345678?body=`,
+      },
+      {
+        name: `email (if you must)`,
         url: `mailto:paullittlebury@gmail.com`,
       }
     ],
