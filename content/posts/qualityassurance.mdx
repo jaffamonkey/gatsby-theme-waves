@@ -40,9 +40,6 @@ import { CodeWave } from "gatsby-theme-waves"
                      |                |        |                |
                      +----------------+        +----------------+ 
 ```
-
-## Continual improvement
-
 The rush to automate CI/CD pipelines can leave some behind, and if not documented will be difficult for new people to pick up.
 
 The important stage is what is fed into the pipeline, which is what people expect as a result - and this will differ!
@@ -50,6 +47,33 @@ The important stage is what is fed into the pipeline, which is what people expec
 Encouraging the business to think outside of simple user stories is a good first step.
 
 _Remember that just because a CI/CD pipeline is working well, it does not mean it is doing a good job_ 
+
+#### First steps?
+
+Some areas that will benefit from Quality assurance expertise:
+
+```gherkin
+    ✅ Person A is not happy but doesn't care, so is happy
+    ✅ Person B is happy
+    ✅ Person C is fooled into being happy
+    ✅ Person D is happy but, that has nothing to do with the Sprint demo
+    ✅ Person E is most critical signoff member who is never around
+    ✅ Person F ...
+```
+
+### Definition of Done
+
+Everyone has a common idea of what sensibly indicates feature is "Done", but everyone also has subtle variations on those common ideas.
+
+Is it worth dissecting the DoD to this level? No.
+
+Feature completion also indicates death of feature, in terms of it's current state.
+
+There is a development continuum that is important to recognise, where the code is simply evolving.
+
+Features as there were defined for signoff, will morph or completely vanish.
+
+The DoD should be a practical set of measurements that all are happy with.
 
 ```gherkin
 Feature: Testing the test website
@@ -62,13 +86,44 @@ Feature: Testing the test website
     Then the first search result should contain "Donald Trump"
 ```
 
-## First steps
+### Requirements
 
-Some areas that will benefit from Quality assurance expertise:
+Encourage Products Owners to adopt different approach to requirements.
 
-* Definition of Done -simple principles, and yet commonly over-complicated.
-* Encourage Products Owners to adopt different approach to requirements.
-* Keep areas such as security, load, accessibility and browser/device compatibility in focus early on.
-* Continual review of quality efforts, at all stages of the project pipeline.
+One approach is using a specification by example way of defining user stories beyond the 3-liner.
+
+This approach encourages Business analysts and product Owners to think their user story through.
+
+The process of giving examples to illustrate what they want, gives the developers more direction and the test engineer a better guide to write effective tests.
+
+```gherkin
+Feature: Testing the test website
+  
+  Scenario: Testing searching
+    Given I am on test website homepage
+    And I fill in the search field with "donald trump simulator"
+    When I click the search button
+    And the page title is "donald trump simulator site:github.com at DuckDuckGo"
+    Then the first search result should contain "Donald Trump"
+```
+
+### Non-functional testing
+
+Keep areas such as security, load, accessibility and browser/device compatibility in focus early on.
+
+```gherkin
+Feature: Testing the test website
+  
+  Scenario: Testing searching
+    Given I am on test website homepage
+    And I fill in the search field with "donald trump simulator"
+    When I click the search button
+    And the page title is "donald trump simulator site:github.com at DuckDuckGo"
+    Then the first search result should contain "Donald Trump"
+```
+
+### Continual improvement
+
+Continual review of quality efforts, at all stages of the project pipeline.
 
 </CodeWave>
