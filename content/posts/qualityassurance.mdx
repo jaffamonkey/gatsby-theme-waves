@@ -12,29 +12,29 @@ import { CodeWave } from "gatsby-theme-waves"
 <CodeWave>
 
 ```markdown
- +-------+      +-------------+
- | BEGIN >---+  |             |                    
- +-------+   +--> Do you need |                    
-                | to make a   N------+             
-       +--------Y flowchart?  |      |             
-       |        |             |      |             
-       |        +-------------+      |             
-       |                             |             
-       |         +------------+      |             
-       |         |            |      |             
- +-----V-------+ | So use it. |      |             
- |             | |            |      |             
- | Then my     | +--^---V-----+      |             
- | module may  |    |   |            |             
- | help.       |    |   |            |             
- |             >----+   |            |             
- +-------------+        |            |              
-                        |      +-----V-------+     
-                        |      |             |     
-                        |      | Then go do  |     
-                        +------> something   |     
-                               | else.       |     
-                               |             |  
+
+=== Deployment pipeline ===
+
+     +-------------------------------------+
+     |                                     |
+ +--debug--+      +--------------+         |
+ |   DEV   >------>              |         |              
+ +---------+      |   CI TESTS   |         |              
+       +-------pass              fail------+                   
+       |          +--------------+         |              
+       |                                   |             
+ +---deploy---+     + ---------------+     |    
+ |            |     |                |     |
+ |  STAGING   >----->   SMOKE TESTS  |     | 
+ |            |     |                fail--+ 
+ +------------+     +-------pass-----+        
+                         |                        
+                         |                         
+                   +---deploy-----+     
+                   |              |     
+                   |  PRODUCTION  |     
+                   |              |
+                   +--------------+ 
 ```
 
 ## Continual improvement
@@ -60,9 +60,11 @@ Feature: Testing the test website
 
 ## First steps
 
+Some areas that will benefit from Quality assurance expertise:
+
+* Definition of Done -simple principles, and yet commonly over-complicated.
 * Encourage Products Owners to adopt different approach to requirements.
 * Keep areas such as security, load, accessibility and browser/device compatibility in focus early on.
 * Continual review of quality efforts, at all stages of the project pipeline.
-* Encouraging the business to think outside of requirements, and understand the benefits of an exploratory mindset.
 
 </CodeWave>
