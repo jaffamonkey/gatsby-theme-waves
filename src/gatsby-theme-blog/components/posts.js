@@ -8,7 +8,7 @@ import Footer from "../components/home-footer"
 const Posts = ({ location, posts, siteTitle, socialLinks }) => (
   <Layout location={location} title={siteTitle}>
     <main>
-      {posts.slice(0, 4).map(({ node }) => {
+      {posts.slice(0, 3).map(({ node }) => {
         const title = node.title || node.slug
         return (
           <Fragment key={node.slug}>
