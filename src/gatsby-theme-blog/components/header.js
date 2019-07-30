@@ -121,8 +121,6 @@ export default ({ children, title, ...props }) => {
           />
         </div>
         {props.location.pathname === rootPath && <Bio />}
-        <Styled.div><a href="https://infallible-archimedes-b888a8.netlify.com/theclients"><img Hspace="10" Vspace="10" src="./images/clients/nike.jpg" /><img Hspace="10" Vspace="10" src="./images/clients/tele2.jpg" />
-          <img Hspace="10" Vspace="10" src="./images/clients/disney.jpg" /><img Hspace="10" Vspace="10" src="./images/clients/engine.jpg" /><img Hspace="10" Vspace="10" src="./images/clients/sonyplaystation.jpg" /><img Hspace="10" Vspace="10" src="./images/clients/digitas.jpg" /><img Hspace="10" Vspace="10" src="./images/clients/citibank.jpg" /></a></Styled.div>
       </div>
     </header>
   )
