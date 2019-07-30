@@ -37,38 +37,18 @@ $ curl -s -v -o /dev/null -I -w "%{http_code}" http://jaffamonkey.com
 < 
 * Connection #0 to host jaffamonkey.com left intact
 ```
-
-## How to test
-
 It's all about what's appropriate, to both development and business sides to a project.
 
 Sometimes investing is a feature-rich test framework is a good idea. 
 
 A test framework that is well-thought out and maintained, will retain usefulness for the whole team.
 
-```bash 1:13
-$ npm install -g assert superagent
-
-// test-api.js
-const superagent = require('superagent');
-const assert = require('assert');
-
-superagent
-  .get('http://localhost:3001/api/v1/todos')
-  .end((err, res) => {
-    assert.ifError(err);
-    assert.equal(res.status, 200);
-    console.log('Result: ' + res.text)
-    });
-
-$ node test-api.js
-Result: {"success":"true","message":"todos retrieved successfully","todos":[{"id":1,"title":"example"}]}
-```
-
 But if you have the build pipepline in sights, then you had better make sure tests run as lean (fast) as possible.
 
 Test engineering is where Testing meets (Dev)Ops!
-```bash 15:17
+
+
+```bash
 $ npm install -g assert superagent
 
 // test-api.js
@@ -86,10 +66,7 @@ superagent
 $ node test-api.js
 Result: {"success":"true","message":"todos retrieved successfully","todos":[{"id":1,"title":"example"}]}
 ```
-
 ## Native code or package?
-
-Writing test code is easier, and there is a raft of packages to help you ... or hinder you. 
 
 Start with too many packages, then you will quickly end up with an unused test framework.
 
@@ -99,6 +76,107 @@ Conversely, don't waste too much time on native code - packages are there too he
 
 The API test is a very basic example, but step up to UI tests (with reporting) and already complexitiy increases.
 
+```yml
+npm install -g artillery
+
+# test.yml
+config:
+  target: https://jaffamonkey.netlify.com
+  phases:
+    - duration: 600
+      arrivalRate: 10
+  defaults:
+    headers:
+      x-api-key: "{{ $processEnvironment.SERVICE_API_KEY }}"
+scenarios:
+  - flow:
+      - get:
+          url: "/"
+
+$ artillery test.yml
+
+Started phase 0, duration: 600s @ 21:07:33(+0200) 2019-07-29
+Report @ 21:07:43(+0200) 2019-07-29
+Elapsed time: 10 seconds
+  Scenarios launched:  99
+  Scenarios completed: 0
+  Requests completed:  28
+  RPS sent: 12.89
+  Request latency:
+    min: 66.5
+    max: 131.9
+    median: 84.7
+    p95: 126.3
+    p99: 131.9
+  Codes:
+    301: 28
+  Errors:
+    EHOSTUNREACH: 99
+
+```
+
+### Load testing
+
+You don't need to run a heavy load
+
+```js
+$ npm install -g pa11y-ci
+
+// pa11y-test.js
+var config = {
+    defaults: {
+      screenCapture: './_pa11y-screen-capture.png',
+      standard: 'WCAG2AA',
+      ignore: [ 'notice' ]
+    },
+    urls: [
+        'https://agitated-hawking-da0192.netlify.com/1',
+        'https://agitated-hawking-da0192.netlify.com/2',
+        'https://agitated-hawking-da0192.netlify.com/3'
+    ]
+  };
+  
+  function myPa11yCiConfiguration (urls, defaults) {
+    console.error('Env:', process.env.TEST_SRV);
+    for (var idx = 0; idx < urls.length; idx++) {
+      urls[ idx ] = urls[ idx ].replace('${TEST_SRV}', process.env.TEST_SRV);
+    }
+    return {
+      defaults: defaults,
+      urls: urls
+    }
+  };
+  module.exports = myPa11yCiConfiguration (config.urls, config.defaults);
+
+  $ pa11y-ci -c pa11y.js
+  Running Pa11y on 3 URLs:
+  https://peaceful-snyder-fc006c.netlify.com - 5 errors
+  https://peaceful-snyder-fc006c.netlify.com/about - 1 errors
+  https://peaceful-snyder-fc006c.netlify.com/privacy-policy - 1 errors
+
+```
+
+### Accessibility
+
+You don't need to run a heavy load
+
+```bash
+
+$ docker pull owasp/zap2docker-weekly
+$ docker run -t -s owasp/zap2docker-weekly zap-api-scan.py -t \ 
+https://peaceful-snyder-fc006c.netlify.com -f openapi
+2019-07-29 22:02:22,087 Number of Imported URLs: 1
+
+WARN-NEW: Unexpected Content-Type was returned [100001] x 3 
+WARN-NEW: Web Browser XSS Protection Not Enabled [10016] x 1 
+WARN-NEW: X-Frame-Options Header Not Set [10020] x 1 
+WARN-NEW: X-Content-Type-Options Header Missing [10021] x 1 
+
+```
+
+### Security testing
+
+You don't need to run a heavy load
 
 ```bash
 sudo: required // Some installation actions require administrator-level access
@@ -117,7 +195,8 @@ branches:
   - travis-ci // Specifies that only the 'travis-ci' branch will be used
   
 before_script:
-  - npm install chromedriver // install chromedriver, the browser interaction service for Chrome
+  - npm install chromedriver // installs chromedriver, the browser interaction service for Chrome.
+  - npm install selenium-webdriver // installs webdriver service to enable browser interaction.
   
 script:
   - node test.js // run the tests
@@ -126,5 +205,7 @@ script:
 ## DevOps
 
 Commonly test engineers touch on the area of DevOps only as far as the build server.
+
+A good helpful step is to dockerise your test framework - if you are using Selenium server, that has value running in a seperte docker container.
 
 </CodeWave>

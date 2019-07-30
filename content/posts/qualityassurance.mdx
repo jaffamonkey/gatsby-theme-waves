@@ -40,17 +40,15 @@ import { CodeWave } from "gatsby-theme-waves"
                      |                |        |                |
                      +----------------+        +----------------+ 
 ```
-The rush to automate CI/CD pipelines can leave some behind, and if not documented will be difficult for new people to pick up.
+The rush to automate CI/CD pipelines can leave some behind.
 
-The important stage is what is fed into the pipeline, which is what people expect as a result - and this will differ!
+If not documented will be difficult for new people to pick up.
 
-Encouraging the business to think outside of simple user stories is a good first step.
+The important stage is what is fed into the pipeline, i.e. requirements
+
+People expect as a result - and this will differ!
 
 _Remember that just because a CI/CD pipeline is working well, it does not mean it is doing a good job_ 
-
-#### First steps?
-
-Some areas that will benefit from Quality assurance expertise:
 
 ```gherkin
     ✅ Person A is not happy but doesn't care, so is happy
@@ -63,17 +61,15 @@ Some areas that will benefit from Quality assurance expertise:
 
 ### Definition of Done
 
-Everyone has a common idea of what sensibly indicates feature is "Done", but everyone also has subtle variations on those common ideas.
+Everyone has a common ideas of what sensibly indicates feature is "Done".
+
+However, everyone has subtle variations on those common ideas.
 
 Is it worth dissecting the DoD to this level? No.
 
-Feature completion also indicates death of feature, in terms of it's current state.
+Features as they were defined for signoff, will morph or completely vanish.
 
-There is a development continuum that is important to recognise, where the code is simply evolving.
-
-Features as there were defined for signoff, will morph or completely vanish.
-
-The DoD should be a practical set of measurements that all are happy with.
+The DoD should be foremost, practical.
 
 ```gherkin
 Feature: Testing the test website
@@ -90,26 +86,11 @@ Feature: Testing the test website
 
 Encourage Products Owners to adopt different approach to requirements.
 
-One approach is using a specification by example way of defining user stories beyond the 3-liner.
+One approach is using a `specification by example` way of defining user stories beyond the 3-liner.
 
 This approach encourages Business analysts and product Owners to think their user story through.
 
-The process of giving examples to illustrate what they want, gives the developers more direction and the test engineer a better guide to write effective tests.
-
-```gherkin
-Feature: Testing the test website
-  
-  Scenario: Testing searching
-    Given I am on test website homepage
-    And I fill in the search field with "donald trump simulator"
-    When I click the search button
-    And the page title is "donald trump simulator site:github.com at DuckDuckGo"
-    Then the first search result should contain "Donald Trump"
-```
-
-### Non-functional testing
-
-Keep areas such as security, load, accessibility and browser/device compatibility in focus early on.
+The process of giving examples to illustrate what they want, gives the developers more direction.
 
 ```gherkin
 Feature: Testing the test website
@@ -126,4 +107,7 @@ Feature: Testing the test website
 
 Continual review of quality efforts, at all stages of the project pipeline.
 
+There is no space for complacency, only the healthy assumption that change is not a risk - it's normal.
+
+If a change to a process doesn't show signs of improving within a Sprint, then adapt/change.
 </CodeWave>
