@@ -32,10 +32,10 @@ const Title = ({ children, location }) => {
     )
   } else {
     return (
-      <Styled.h3
-        as="p"
+      <Styled.h1
         css={css({
           my: 0,
+          fontSize: 4,
         })}
       >
         <Styled.a
@@ -49,7 +49,7 @@ const Title = ({ children, location }) => {
         >
           {children}
         </Styled.a>
-      </Styled.h3>
+      </Styled.h1>
     )
   }
 }
