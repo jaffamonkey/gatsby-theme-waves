@@ -92,22 +92,46 @@ This approach encourages Business analysts and product Owners to think their use
 
 The process of giving examples to illustrate what they want, gives the developers more direction.
 
-```gherkin
-Feature: Testing the test website
-  
-  Scenario: Testing searching
-    Given I am on test website homepage
-    And I fill in the search field with "donald trump simulator"
-    When I click the search button
-    And the page title is "donald trump simulator site:github.com at DuckDuckGo"
-    Then the first search result should contain "Donald Trump"
+```bash
+     THE BAD                THE GOOD              SUGGESTIONS
+
++----------------+      +-----------------+      +---------------+
+| SPRINT         |      | HAVING A        |      | CREATING A    |
+| DEMOS ARE      |      | UX STEP ON      |      | SEPARATE      |
+| CAUSING TOO    |      | SCRUM BOARD     |      | JIRA TASK FOR |
+| MUCH TECH DEBT |      | HELPS AVOID     |      | A FEATURES    |
++----------------+      | DESIGN VERSION  |      | TEST ADDS NO  |
+                        | ERRORS          |      | VALUE         |
++----------------+      +-----------------+      +---------------+
+| JIRA IS        |
+| AWLAYS SLOW    |      +-----------------+      +---------------+
+| SLOW,AND DAILY |      | ALLOWING        |      | DEVS NEED LESS|
+| ADMIN TAKES AN |      | DEVS TO         |      | DISTRACTION   |
+| HOUR OUT OF    |      | MAKE BASIC      |      | FROM THE      |
+| WORK DAY       |      | DECISIONS       |      | ADHOC MEETINGS|
++----------------+      +-----------------+      +---------------+
+
++----------------+                               +---------------+
+| PRODUCT        |                               | REVIEW OF THE |
+| OWNER RARELY   |                               | PRODUCT OWNERS|
+| AVAILABLE FOR  |                               | AVAILABILITY  |
+| QUATIONS FROM  |                               | AND SEE HOW WE|
+| DEVELOPERS     |                               | CAN WORK      |
++----------------+                               | AROUND THAT   |
+                                                 +---------------+
+
 ```
 
 ### Continual improvement
 
 Continual review of quality efforts, at all stages of the project pipeline.
 
+This is where conversation needs to occur on a daily basis, but not in an alrmist fashion.
+
+Every process, every way of working should be up for review - and most importantly the team should feel they can be honest.
+
 There is no space for complacency, only the healthy assumption that change is not a risk - it's normal.
 
 If a change to a process doesn't show signs of improving within a Sprint, then adapt/change.
+
 </CodeWave>
