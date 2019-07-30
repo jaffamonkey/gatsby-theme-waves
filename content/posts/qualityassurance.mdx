@@ -51,12 +51,29 @@ For the client, completed requirements are the benchmark of success BUT success 
 _Remember that just because a CI/CD pipeline is working well, it does not mean it is doing a good job_ 
 
 ```gherkin
-    ✅ Person A is not happy but doesn't care, so is happy
-    ✅ Person B is happy
-    ✅ Person C is fooled into being happy
-    ✅ Person D is happy but, that has nothing to do with the Sprint demo
-    ✅ Person E is most critical signoff member who is never around
-    ✅ Person F ...
+                        +----------+
+                        | FEATURE  |
+           +--------+   +----+-----+
+           | REVIEW |        |
+           +---^----+        |
+               |      -------v-------+
+               |      | STAGING TEST |
+               +----fail----pass-----+
+                             +
+                             |
+                             |
+                 +-----------v-----------+
++-----------+    |      IS IT DONE?      |    +----------------+
+|  REVIEW   <---no (Definition of Done) yes---> DEPLOY TO LIVE |
++-----------+    |       of Done)        |    +----------------+
+                 +-----------------------+
+
+    ✅ Feature acceptance test has passed on staging environment
+    ✅ No WCAG2AA errors present
+    ✅ Design has been reviewed by UX team
+    ✅ Nominated stakeholder has performed manual test on staging environment
+    ✅ Product Owner or Scrum master has agreed the feature is complete.
+    ✅ Feature is ready for production deployment
 ```
 ### How Quality assurance can help
 
@@ -73,14 +90,21 @@ Features as they were defined for signoff, will morph or completely vanish.
 The DoD should be foremost, practical.
 
 ```gherkin
-Feature: Testing the test website
+Feature: As a user, I want a helpful search page, so I can find relevant results quickly
   
-  Scenario: Testing searching
-    Given I am on test website homepage
-    And I fill in the search field with "donald trump simulator"
-    When I click the search button
-    And the page title is "donald trump simulator site:github.com at DuckDuckGo"
-    Then the first search result should contain "Donald Trump"
+  Scenario: Test searching (happy path)
+    Given I perform search for "BDD" 
+    When I filter search results to display only result containing word "Gherkin"
+    And order search results by relevance
+    Then the first search result should contain "Gherkin" in the result title
+
+  Scenario: Testing searching (unhappy path)
+    Given I perform search for "BDDD" 
+    Then I should see search suggestion "Did you mean BDD?"
+    When I successfully follow the search suggestion
+    And I filter search results to display only result containing word "Gherkin"
+    And order search results by relevance
+    Then the first search result should contain "Gherkin" in the result title
 ```
 
 #### Requirements
