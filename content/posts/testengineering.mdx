@@ -115,10 +115,15 @@ Elapsed time: 10 seconds
 
 ```
 
-### Load testing
+### Performance tests should be standard
 
-You don't need to run a heavy load
+#### Load testing
 
+You don't need to run a heavy load to get useful feedback.
+
+Developers always appreciate feedback on performance impact from their code changes.
+
+_Choose tools that do not add too much overhead on build server, as ideally it should run as part of build checks._
 ```js
 $ npm install -g pa11y-ci
 
@@ -156,27 +161,64 @@ var config = {
 
 ```
 
-### Accessibility
+#### Accessibility
 
-You don't need to run a heavy load
+There are several tools that are easy to integrate as part of CI.
+
+These tools will check against the WCAG2 standards, but final evaliuation should be with real users with real accessibility devices and software.
+
+Implementing a tool to run automated checks across the web/mobile app will keep development on track.
+
+_Keep with cli tools, as this will ensure integration with build pipeline will have less impact/overhead_
 
 ```bash
 
 $ docker pull owasp/zap2docker-weekly
-$ docker run -t -s owasp/zap2docker-weekly zap-api-scan.py -t \ 
-https://peaceful-snyder-fc006c.netlify.com -f openapi
-2019-07-29 22:02:22,087 Number of Imported URLs: 1
-
-WARN-NEW: Unexpected Content-Type was returned [100001] x 3 
-WARN-NEW: Web Browser XSS Protection Not Enabled [10016] x 1 
-WARN-NEW: X-Frame-Options Header Not Set [10020] x 1 
-WARN-NEW: X-Content-Type-Options Header Missing [10021] x 1 
+$ docker run -t owasp/zap2docker-weekly zap-api-scan.py -t \ 
+http://jaffamonkey.com -f openapi
+2019-07-30 20:55:13,781 Number of Imported URLs: 1
+Total of 2 URLs
+PASS: Directory Browsing [0]
+PASS: Cookie No HttpOnly Flag [10010]
+PASS: Cookie Without Secure Flag [10011]
+PASS: Incomplete or No Cache-control and Pragma HTTP Header Set [10015]
+PASS: Web Browser XSS Protection Not Enabled [10016]
+PASS: Cross-Domain JavaScript Source File Inclusion [10017]
+PASS: Content-Type Header Missing [10019]
+PASS: X-Frame-Options Header Scanner [10020]
+PASS: X-Content-Type-Options Header Missing [10021]
+PASS: HTTP Parameter Override [10026]
+PASS: Information Disclosure - Suspicious Comments [10027]
+PASS: Viewstate Scanner [10032]
+PASS: Secure Pages Include Mixed Content [10040]
+PASS: Source Code Disclosure - /WEB-INF folder [10045]
+PASS: Remote Code Execution - Shell Shock [10048]
+PASS: Cookie Without SameSite Attribute [10054]
+PASS: Possible Username Enumeration [40023]
+PASS: Source Code Disclosure - SVN [42]
+PASS: Script Active Scan Rules [50000]
+PASS: Script Passive Scan Rules [50001]
+PASS: Path Traversal [6]
+PASS: Insecure HTTP Method [90028]
+PASS: Loosely Scoped Cookie [90033]
+WARN-NEW: Unexpected Content-Type was returned [100001] x 1 
+	http://jaffamonkey.com
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 1	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 71
 
 ```
 
-### Security testing
+#### Security testing
 
-You don't need to run a heavy load
+There is a lot you can test client-side to avoid the emabrassing security errors.
+
+Common vulnerabilities are:
+
+* SQL Injection
+* Cross Site Scripting
+* Insecure Direct Object References
+* Cross Site Request Forgery
+* Failure to restrict URL Access
+* Unvalidated Redirects and Forwards
 
 ```bash
 sudo: required // Some installation actions require administrator-level access
@@ -204,8 +246,11 @@ script:
 
 ## DevOps
 
-Commonly test engineers touch on the area of DevOps only as far as the build server.
+Here are some ways that test engineering easily helps with DevOps
 
-A good helpful step is to dockerise your test framework - if you are using Selenium server, that has value running in a seperte docker container.
+* Dockerise your test framework (better portability and ease of running).
+* Keep package count low, and specify version, so pointless updates do not occur.
+* Ensure processes are properly "killed" at the end of test runs.
+* Use cloud service to store historical reports and other test artifacts (like screenshots)
 
 </CodeWave>
