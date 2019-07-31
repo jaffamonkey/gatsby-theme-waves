@@ -12,42 +12,45 @@ import { CodeWave } from "gatsby-theme-waves"
 
 === Feature deployment pipeline ===
 
-       +------------------------------------+
-       |                                    |
-       |                                    |
- +---debug---+      +----------------+      |
- |           |      |                |      |
- |    DEV    >------>    CI TESTS    fail---+  
- |           |      |                |      |  
- +-----------+      +------pass------+      |                                             
-                            |               |
-        +-------------------+               |
-        |                                   |
-        |                                   |             
- +----deploy---+     +---------------+      |    
- |             |     |               |      |
- |   STAGING   >----->  SMOKE TESTS  fail---+
- |             |     |               |
- +-------------+     +------pass-----+        
-                             |                        
-                             |                         
-                     +----signoff-----+        +----------------+     
-                     |                |        |                |
-                     |  FEATURE DONE  >---deploy   PRODUCTION   |
-                     |                |        |                |
-                     +----------------+        +----------------+ 
+       +---------------debug------------------+
+       |                                      |
+       |                                      |
+       |                                      |   
+ +-----v-----+       +----------------+       |
+ |           |       |                |       |
+ |    DEV    +------->   CI TESTS     fail----+  
+ |           |       |                |       |  
+ +-----------+       +------pass------+       |
+                             |                |
+                             |                |
+                             |                |
+       +--------deploy-------+                |
+       |                                      |          +--------------------+
+       |                                      |          |                    |
+       |                                      |     +---->  UPDATE CI TESTS   |
++------v------+      +---------------+        |     |    |                    |   
+|             |      |               fail-----+     |    +--------------------+
+|   STAGING   +------>  SMOKE TESTS  |              |
+|             |      |               pass-----------+
++-------------+      +---------------+              |    
+                                                    |    +------------------+
+                                                    |    |                  |                                      
+                                                    +---->    PRODUCTION    |
+                                                         |                  |
+                                                         +------------------+       
 ```
+
 ### The rush to automate CI/CD pipelines can leave some behind.
 
-For the client, features completion to requirements is the success, but the path can easily get skewed.
+For the client, `feature` completion of the feature is the success, but the path can easily get skewed.
 
-Getting a shared view of the journey of a feature from the outset, will smooth the daily work.
+Getting a shared view of the journey of a feature through the project pipeline from the outset, will smooth the daily work.
 
 Quality assurance has unique vantage point on a project, and quality is of interest to everyone.
 
 _Remember that just because the `CI`/`CD` pipelines are working well, it does not mean it is doing the right job_ 
 
-```gherkin
+```markdown
                         +----------+
                         | FEATURE  |
            +--------+   +----+-----+
@@ -55,23 +58,27 @@ _Remember that just because the `CI`/`CD` pipelines are working well, it does no
            +---^----+        |
                |      -------v-------+
                |      | STAGING TEST |
-               +----fail----pass-----+
-                             +
+               +---fail              | 
+                      +-----pass-----+
                              |
                              |
-                 +-----------v-----------+
-+-----------+    |      IS IT DONE?      |    +----------------+
-|  REVIEW   <---no (Definition of Done) yes---> DEPLOY TO LIVE |
-+-----------+    |       of Done)        |    +----------------+
-                 +-----------------------+
-
-    ✅ Feature acceptance test has passed on staging environment
-    ✅ No WCAG2AA errors present
-    ✅ Design has been reviewed by UX team
-    ✅ Nominated stakeholder has performed manual test on staging environment
-    ✅ Product Owner or Scrum master has agreed the feature is complete.
-    ✅ Feature is ready for production deployment
+  +--------------------------v-------------------------+
+  |                                                    |
+  |  Acceptance test has passed on staging environment |
+  |  No WCAG2AA errors present                         |
+  |  Design has been reviewed by UX team               |
+  |  Manual test performed on staging environment      |
+  |  Product Owner has agreed the feature is complete  |
+  |  Feature is ready for production deployment        |
+  |                                                    |
+  +-------------fail------------------pass-------------+ 
+                 |                     |
+                 |                     |
+            +----v----+        +-------v--------+
+            | REVIEW  |        | DEPLOY TO LIVE |
+            +---------+        +----------------+
 ```
+
 ### How Quality assurance can help
 
 #### Definition of Done
@@ -106,16 +113,17 @@ Feature: As a user, I want a helpful search page, so I can find relevant results
 
 #### Requirements
 
-Encourage `Products Owners` to adopt different approach to requirements.
+Encourage the `products owner` or `business analyst` to adopt different approach to requirements.
 
 One approach is using `specification by example` approach to defining user stories.
 
-This approach encourages Business analysts and product Owners to think their user story through.
+This approach encourages people to think their user story through, rather than just high level view.
 
 The process of giving examples to illustrate what they want, gives the developers more direction.
 
 And provides a better basis for creating acceptance tests.
-```bash
+
+```markdown
      THE BAD                THE GOOD              SUGGESTIONS
 
 +----------------+      +-----------------+      +---------------+
@@ -144,6 +152,7 @@ And provides a better basis for creating acceptance tests.
                                                  +---------------+
 
 ```
+
 #### Continual improvement
 
 Continual review of quality efforts, at all stages of the project pipeline.
@@ -155,4 +164,5 @@ Every process, every way of working should be up for review - and most important
 There is no space for complacency, only the healthy assumption that change is not a risk - it's normal.
 
 If a change to a process doesn't show signs of improving within a Sprint, then adapt/change.
+
 </CodeWave>

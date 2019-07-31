@@ -43,7 +43,7 @@ Sometimes investing is a feature-rich test framework is a good idea.
 
 A test framework that is well-thought out and maintained, will retain usefulness for the whole team.
 
-But if you have the build pipepline in sights, then you had better make sure tests run as lean (fast) as possible.
+But if you have intergation with `CI`/`CD` in sight, then you had better make sure tests run as lean (fast) as possible.
 
 Test engineering is where Testing meets `DevOps`!
 
@@ -64,11 +64,13 @@ superagent
     });
 
 $ node test-api.js
-Result: {"success":"true","message":"todos retrieved successfully","todos":[{"id":1,"title":"example"}]}
+Result: {"success":"true","message":
+"todos retrieved successfully",
+"todos":[{"id":1,"title":"example"}]}
 ```
 ## Native code or package?
 
-Start with too many packages, then you will quickly end up with an unused test framework.
+Start with too many `packages`, then you will quickly end up with an unused test framework.
 
 Start small - don't use a package if it can be coded natively.
 
@@ -123,7 +125,7 @@ You don't need to run a heavy load to get useful feedback.
 
 Developers always appreciate feedback on performance impact from their code changes.
 
-_Choose tools that do not add too much overhead on build server, as ideally it should run as part of build checks._
+_Choose tools that do not add too much overhead on `build server`, as ideally it should run as part of build checks._
 ```js
 $ npm install -g pa11y-ci
 
@@ -163,13 +165,13 @@ var config = {
 
 #### Accessibility
 
-There are several tools that are easy to integrate as part of CI.
+There are several tools that are easy to integrate as part of `CI`.
 
-These tools will check against the `WCAG2` standards, but final evaliuation should be with real users with real accessibility devices and software.
+These tools will check against the `WCAG2` standards, but final evaluation should be with real users with real accessibility devices and software.
 
 Implementing a tool to run automated checks across the web/mobile app will keep development on track.
 
-_Keep with cli tools, as this will ensure integration with build pipeline will have less impact/overhead_
+_Keep with `cli` tools, as this will ensure integration with build pipeline will have less impact/overhead_
 
 ```bash
 
@@ -248,8 +250,8 @@ script:
 
 Here are some ways that test engineering easily helps with DevOps
 
-* Dockerise your test framework (better portability and ease of running).
-* Keep package count low, and specify version, so pointless updates do not occur.
+* `Dockerise` your test framework (better portability and ease of running).
+* Keep `package` count low, and specify version, so pointless updates do not occur.
 * Ensure processes are properly "killed" at the end of test runs.
 * Use cloud service to store historical reports and other test artifacts (like screenshots)
 
