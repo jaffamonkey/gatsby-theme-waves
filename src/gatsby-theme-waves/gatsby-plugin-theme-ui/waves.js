@@ -13,7 +13,7 @@ export default {
     },
     ScrollerContainer: {
       flex: 1,
-      paddingLeft: [0, "50px"],
+      paddingLeft: [0, "10px"],
       paddingTop: ["50px", 0],
     },
     ScrollerStep: {
