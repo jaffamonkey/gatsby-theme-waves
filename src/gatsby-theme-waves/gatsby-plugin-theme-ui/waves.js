@@ -13,12 +13,12 @@ export default {
     },
     ScrollerContainer: {
       flex: 1,
-      paddingLeft: [0, "10px"],
+      paddingLeft: [0, "15px"],
       paddingTop: ["50px", 0],
     },
     ScrollerStep: {
       position: "relative",
-      padding: [0, "0 10px"],
+      padding: [0, "0 15px"],
       minHeight: "250px",
       display: "flex",
       alignItems: "center",
@@ -30,7 +30,7 @@ export default {
       // backgroundColor: "primary",
     },
     StickerContainer: {
-      width: ["100vw", "50%"],
+      width: ["100vw", "45%"],
       marginLeft: ["calc(50% - 50vw)", 0],
       position: ["sticky", "static"],
       top: [0, "auto"],

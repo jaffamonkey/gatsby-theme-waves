@@ -34,7 +34,11 @@ const Posts = ({ location, posts, siteTitle, socialLinks }) => (
           </Fragment>
         )
       })}
-    </main>
+    </main><br />
+    <Styled.div><a href="https://infallible-archimedes-b888a8.netlify.com/theclients"><img Hspace="5" width="50" src="./images/clients/nike.jpg" /><img Hspace="5" width="50" src="./images/clients/tele2.jpg" />
+          <img Hspace="5" width="50" src="./images/clients/disney.jpg" /><img Hspace="5" width="50" src="./images/clients/engine.jpg" /><img Hspace="5" width="50" src="./images/clients/sonyplaystation.jpg" /><img Hspace="5" width="50" src="./images/clients/citibank.jpg" /><img Hspace="5" width="50" src="./images/clients/digitas.jpg" /><img Hspace="5" width="50" src="./images/clients/incisivemedia.jpg" /></a><img Hspace="5" width="50" src="./images/clients/wowcher.jpg" /><img Hspace="5" width="50" src="./images/clients/bbc.jpg" /><img Hspace="5" width="50" src="./images/clients/pearson.jpg" />
+          </Styled.div>
+
     <Footer socialLinks={socialLinks} />
   </Layout>
 )
