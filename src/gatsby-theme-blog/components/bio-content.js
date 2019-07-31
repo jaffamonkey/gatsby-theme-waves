@@ -7,7 +7,7 @@ import { Styled } from "theme-ui"
 
 export default () => (
   <Fragment>
-    <Styled.h1>Quality engineering</Styled.h1>
+    <Styled.h2>quality engineering</Styled.h2>
     <Styled.h4>A pragmatic approach to improving quality in CI & CD</Styled.h4>
     {/* <Styled.img src="./cicd.png"></Styled.img> */}
     <br/>

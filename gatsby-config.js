@@ -5,7 +5,7 @@ module.exports = {
     // Used to provide alt text for your avatar
     author: `Paul Littlebury`,
     // Used for SEO
-    description: `Quality`,
+    description: `quality engineering`,
     // Used for social links in the root footer
     social: [
       {
