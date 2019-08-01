@@ -79,20 +79,29 @@ The API test is a very basic example, but
 step up to UI tests (with reporting) and 
 already complexitiy increases.
 
-```yml
-Started, duration: 600s @ 21:07:33(+0200) 
-Report @ 21:07:43(+0200) 2019-07-29
-Elapsed time: 10 seconds
-  Scenarios launched:  99
-  Scenarios completed: 0
-  Requests completed:  28
-  RPS sent: 12.89
+```bash
+$ npm install -g artillery
+$ artillery quick -d 60 -r 10 -k https://jaffamonkey.netlify.com
+Started phase 0, duration: 60s @ 18:37:13(+0200) 2019-08-01
+
+All virtual users finished
+Summary report @ 18:38:13(+0200) 2019-08-01
+  Scenarios launched:  600
+  Scenarios completed: 560
+  Requests completed:  560
+  RPS sent: 9.94
   Request latency:
-    min: 66.5
-    max: 131.9
-    median: 84.7
-    p95: 126.3
-    p99: 131.9
+    min: 84.4
+    max: 1149.5
+    median: 99.3
+    p95: 226.4
+    p99: 776
+  Scenario counts:
+    0: 600 (100%)
+  Codes:
+    200: 560
+  Errors:
+    EHOSTUNREACH: 40
 ```
 
 ### Performance tests should be standard
