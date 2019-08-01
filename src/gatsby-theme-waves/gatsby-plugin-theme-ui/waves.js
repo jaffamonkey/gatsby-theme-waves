@@ -13,20 +13,20 @@ export default {
     },
     ScrollerContainer: {
       flex: 1,
-      paddingLeft: [0, "15px"],
+      paddingLeft: [0, "50px"],
       paddingTop: ["50px", 0],
     },
     ScrollerStep: {
       position: "relative",
-      padding: [0, "0 15px"],
+      padding: [0, "0 10px"],
       minHeight: "250px",
       display: "flex",
       alignItems: "center",
       // borderLeft: ["none", "3px solid transparent"],
     },
     ScrollerProgress: {
-      // position: "absolute",
-      // left: ["-12px", "-3px"],
+      position: "absolute",
+      left: ["-12px", "-3px"],
       // backgroundColor: "primary",
     },
     StickerContainer: {
@@ -43,7 +43,7 @@ export default {
       height: ["100%", "60vh"],
       top: ["auto", "20vh"],
       // border: ["none", "1px solid"],
-      borderColor: "secondary",
+      // borderColor: "secondary",
     },
     // this is used to select the active scroller step
     // 0.5 selects the step that is at half the screen height

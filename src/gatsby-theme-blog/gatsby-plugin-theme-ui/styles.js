@@ -18,7 +18,7 @@ export default {
     fontFamily: `monospace`,
     // from typography overrideThemeStyles
     // "h1 code, h2 code, h3 code, h4 code, h5 code, h6 code"
-    fontSize: "30px",
+    fontSize: `inherit`,
   },
   inlineCode: {
     borderRadius: `0.3em`,
