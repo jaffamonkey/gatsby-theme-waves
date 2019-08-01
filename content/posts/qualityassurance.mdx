@@ -37,6 +37,20 @@ Quality assurance has unique vantage point on a project, and quality is of inter
 
 _Remember that just because the `CI`/`CD` pipelines are working well, it does not mean it is doing the right job_ 
 
+```jsx
+
+
+```
+
+### It's about people
+
+Engaging with ideas such as transparency and supportive teams, will never work unless the work environment demontsrates this in action.
+
+Firstly: Focus on tasks, not roles - surprisingly how quickly most most assumptions. An individual will have skills outside of a role, so immediately you are limiting the individuals potential contribution.
+
+Secondly: Humans make mistakes, get upset, get stressed - and these are things easy to alleviate, but not with meetings and process. Foster an environment that allows people to take more risks, point out concerns and make suggestions.
+
+
 ```markdown
                   +----------+
                   | FEATURE  |
@@ -54,22 +68,15 @@ _Remember that just because the `CI`/`CD` pipelines are working well, it does no
   | ☑ Feature UAT passed on staging         |
   | ☑ Feature is ready for live deployment  |
   +-----------------------------------------+
-  
 ```
 
-### How Quality assurance can help
+### Definition of Done
 
-#### Definition of Done
+Everyone has a common ideas of what sensibly indicates feature is "Done". However, everyone has also subtle variations on what they consider to be "Done", and this comprise of most of the disagreements.
 
-Everyone has a common ideas of what sensibly indicates feature is "Done".
+Is it worth dissecting the `DoD` to a granular level to please everyone? No - keep it pragmatic.
 
-However, everyone has subtle variations on those common ideas.
-
-Is it worth dissecting the `DoD` to this level? No.
-
-Features as they were defined for signoff, will morph or completely vanish.
-
-The DoD should be foremost, practical.
+Feature signoff is a moment in time, and an important benchmark for the business. But the feature will quickly change/morph as development and new feature-related requirements appear in the backlog.
 
 ```gherkin
 Feature: As a user, 
@@ -87,17 +94,13 @@ Scenario: Testing searching (unhappy path)
   Then suggestion "Did you mean BDD?" displayed
 ```
 
-#### Requirements
+### Requirements
 
-Encourage the `products owner` or `business analyst` to adopt different approach to requirements.
+The user story format can be vague, so encoruage the `products owner` or `business analyst` to adopt different approach to requirements. Sometimes people just need to be shown a direction, to change.
 
-One approach is using `specification by example` approach to defining user stories.
+One approach is using `specification by example` approach to defining user stories. This approach encourages people to think their user story through, rather than just high level view.
 
-This approach encourages people to think their user story through, rather than just high level view.
-
-The process of giving examples to illustrate what they want, gives the developers more direction.
-
-And provides a better basis for creating acceptance tests.
+The process of giving examples to illustrate what they want, gives the developers more direction. And provides a better basis for creating acceptance tests.
 
 ```markdown
    Problems               Suggestions
@@ -119,13 +122,13 @@ And provides a better basis for creating acceptance tests.
 +----------------+      +----------------------+
 ```
 
-#### Continual improvement
+### Continual improvement
 
-Continual review of quality efforts, at all stages of the project pipeline.
+All quality efforts, at all stages of the project pipeline, should regularly be reviewed.
 
-This is where conversation needs to occur on a daily basis, but not in an alarmist fashion.
+Every process, every way of working has potential for improvement, or perhaps even losing
 
-Every process, every way of working should be up for review - and most importantly the team should feel they can be honest.
+_Importantly, the team should feel they can be honest._
 
 There is no space for complacency, only the healthy assumption that change is not a risk - it's normal.
 
