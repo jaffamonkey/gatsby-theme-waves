@@ -40,22 +40,21 @@ _Remember that just because the `CI`/`CD` pipelines are working well, it does no
 ```markdown
                   +----------+
                   | FEATURE  |
-+--------+        +----+-----+
-| REVIEW |             |
-+---^----+             |
-    |           +------v-------+
-    |           |   STAGING    |
-    +--------fail  SMOKE TEST  | 
-                +-----pass-----+
+                  +----+-----+
+                       |
+                +------v-------+      
++--------+      |   STAGING    |       
+| REVIEW <---fail  SMOKE TEST  |
++--------+      +-----pass-----+
                         |
-  +---------------------v----------------------+
-  | Acceptance test has passed on staging site |
-  | No WCAG2AA accessbility errors are present |
-  | Design has been reviewed by UX team        |
-  | Manual test performed on staging site      |
-  | Product Owner validated feature            |
-  | Feature is ready for live deployment       |
-  +--------------------------------------------+
+  +---------------------v-------------------+
+  | ☑ Product Owner validated feature       |
+  | ☑ Acceptance test has passed on staging |
+  | ☑ No WCAG2AA accessbility errors        |
+  | ☑ Feature UAT passed on staging         |
+  | ☑ Feature is ready for live deployment  |
+  +-----------------------------------------+
+  
 ```
 
 ### How Quality assurance can help
@@ -77,15 +76,15 @@ Feature: As a user,
          I want a helpful search page, 
          so I can find relevant results quickly
   
-  Scenario: Test searching (happy path)
-    Given I perform search for "BDD" 
-    When I filter results containing "Gherkin"
-    And order search results by relevance
-    Then first result title contains "Gherkin"
+Scenario: Test searching (happy path)
+  Given I perform search for "BDD" 
+  When I filter results containing "Gherkin"
+  And order search results by relevance
+  Then first result title contains "Gherkin"
 
-  Scenario: Testing searching (unhappy path)
-    Given I perform search for "BDDD" 
-    Then suggestion "Did you mean BDD?" displayed
+Scenario: Testing searching (unhappy path)
+  Given I perform search for "BDDD" 
+  Then suggestion "Did you mean BDD?" displayed
 ```
 
 #### Requirements
