@@ -10,12 +10,13 @@ import { CodeWave } from "gatsby-theme-waves"
 <CodeWave>
 
 ```bash
-$ curl -s -v -o /dev/null -I -w "%{http_code}" http://jaffamonkey.com
+$ curl -s -v -o /dev/null -I -w "%{http_code}" \
+  http://jaffamonkey.com
 *   Trying 35.169.225.248...
 * TCP_NODELAY set
 * Expire in 149999 ms for 3 (transfer 0x55a114e985c0)
 * Expire in 200 ms for 4 (transfer 0x55a114e985c0)
-* Connected to jaffamonkey.com (35.169.225.248) port 80 (#0)
+* Connected to jaffamonkey.com (35.169.225.248) port 80
 > HEAD / HTTP/1.1
 > Host: jaffamonkey.com
 > User-Agent: curl/7.64.0
@@ -79,7 +80,7 @@ step up to UI tests (with reporting) and
 already complexitiy increases.
 
 ```yml
-Started phase 0, duration: 600s @ 21:07:33(+0200) 2019-07-29
+Started, duration: 600s @ 21:07:33(+0200) 
 Report @ 21:07:43(+0200) 2019-07-29
 Elapsed time: 10 seconds
   Scenarios launched:  99
@@ -115,9 +116,7 @@ var config = {
       standard: 'WCAG2AA',
       ignore: [ 'notice' ]
     },
-    urls: [
-        'https://agitated-hawking-da0192.netlify.com/1',
-    ]
+    urls: ['https://agitated-hawking-da0192.netlify.com/1']
   };
   function pa11yconfig(urls, defaults) {
     console.error('Env:', process.env.TEST_SRV);

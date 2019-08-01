@@ -30,7 +30,7 @@ export default {
       // backgroundColor: "primary",
     },
     StickerContainer: {
-      width: ["100vw", "45%"],
+      width: ["100vw", "50%"],
       marginLeft: ["calc(50% - 50vw)", 0],
       position: ["sticky", "static"],
       top: [0, "auto"],
