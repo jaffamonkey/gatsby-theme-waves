@@ -3,8 +3,8 @@ import { Link } from "gatsby"
 import { css, useColorMode, Styled } from "theme-ui"
 import Switch from "./switch"
 import Bio from "../components/bio"
-import sun from "../assets/sun.png"
-import moon from "../assets/moon.png"
+import sun from "../../assets/sun.png"
+import moon from "../../assets/moon.png"
 
 const rootPath = `${__PATH_PREFIX__}/`
 
@@ -32,10 +32,10 @@ const Title = ({ children, location }) => {
     )
   } else {
     return (
-      <Styled.h1
+      <Styled.h3
+        as="p"
         css={css({
           my: 0,
-          fontSize: 4,
         })}
       >
         <Styled.a
@@ -49,7 +49,7 @@ const Title = ({ children, location }) => {
         >
           {children}
         </Styled.a>
-      </Styled.h1>
+      </Styled.h3>
     )
   }
 }
