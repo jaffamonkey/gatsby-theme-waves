@@ -3,8 +3,8 @@ import { Link } from "gatsby"
 import { css, useColorMode, Styled } from "theme-ui"
 import Switch from "./switch"
 import Bio from "../components/bio"
-import sun from "../../assets/sun.png"
-import moon from "../../assets/moon.png"
+import sun from "../assets/sun.png"
+import moon from "../assets/moon.png"
 
 const rootPath = `${__PATH_PREFIX__}/`
 
