@@ -54,7 +54,7 @@ const Title = ({ children, location }) => {
   }
 }
 
-const checkedIcon = (
+const uncheckedIcon = (
   <img
     alt="moon indicating dark mode"
     src={moon}
@@ -68,7 +68,7 @@ const checkedIcon = (
   />
 )
 
-const uncheckedIcon = (
+const checkedIcon = (
   <img
     alt="sun indicating light mode"
     src={sun}
