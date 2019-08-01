@@ -5,13 +5,7 @@ title: test engineering
 
 import { CodeWave } from "gatsby-theme-waves"
 
----
-
-Test automation is only part of the path that leads to better quality with `CI` and `CD`.
-
-When building and maintaining a test framework it should always be optimal.
-
-### This means no clunk, clutter or useless tests.
+#### When building and maintaining a test framework it should always be optimal - no clunk, clutter or useless tests.
 
 <CodeWave>
 
@@ -70,33 +64,21 @@ Result: {"success":"true","message":
 ```
 ## Native code or package?
 
-Start with too many `packages`, then you will quickly end up with an unused test framework.
+Start with too many `packages`, then you 
+will quickly end up with an unused test framework.
 
-Start small - don't use a package if it can be coded natively.
+Start small - don't use a package if it can be 
+coded natively.
 
-Conversely, don't waste too much time on native code - packages are there too help you, just be selective.
+Conversely, don't waste too much time on native 
+code - packages are there too help you, just 
+be selective.
 
-The API test is a very basic example, but step up to UI tests (with reporting) and already complexitiy increases.
+The API test is a very basic example, but 
+step up to UI tests (with reporting) and 
+already complexitiy increases.
 
 ```yml
-npm install -g artillery
-
-# test.yml
-config:
-  target: https://jaffamonkey.netlify.com
-  phases:
-    - duration: 600
-      arrivalRate: 10
-  defaults:
-    headers:
-      x-api-key: "{{ $processEnvironment.SERVICE_API_KEY }}"
-scenarios:
-  - flow:
-      - get:
-          url: "/"
-
-$ artillery test.yml
-
 Started phase 0, duration: 600s @ 21:07:33(+0200) 2019-07-29
 Report @ 21:07:43(+0200) 2019-07-29
 Elapsed time: 10 seconds
@@ -110,25 +92,22 @@ Elapsed time: 10 seconds
     median: 84.7
     p95: 126.3
     p99: 131.9
-  Codes:
-    301: 28
-  Errors:
-    EHOSTUNREACH: 99
-
 ```
 
 ### Performance tests should be standard
 
 #### Load testing
 
-You don't need to run a heavy load to get useful feedback.
+You don't need to run a heavy load to get 
+useful feedback.
 
-Developers always appreciate feedback on performance impact from their code changes.
+Developers always appreciate feedback on 
+performance impact from their code changes.
 
-_Choose tools that do not add too much overhead on `build server`, as ideally it should run as part of build checks._
+_Choose tools that do not add too much overhead 
+on `build server`, as ideally it should run 
+as part of build checks._
 ```js
-$ npm install -g pa11y-ci
-
 // pa11y-test.js
 var config = {
     defaults: {
@@ -138,28 +117,20 @@ var config = {
     },
     urls: [
         'https://agitated-hawking-da0192.netlify.com/1',
-        'https://agitated-hawking-da0192.netlify.com/2',
-        'https://agitated-hawking-da0192.netlify.com/3'
     ]
   };
-  
-  function myPa11yCiConfiguration (urls, defaults) {
+  function pa11yconfig(urls, defaults) {
     console.error('Env:', process.env.TEST_SRV);
     for (var idx = 0; idx < urls.length; idx++) {
-      urls[ idx ] = urls[ idx ].replace('${TEST_SRV}', process.env.TEST_SRV);
+      urls[ idx ] = urls[ idx ]
+        .replace('${TEST_SRV}', process.env.TEST_SRV);
     }
     return {
       defaults: defaults,
       urls: urls
     }
   };
-  module.exports = myPa11yCiConfiguration (config.urls, config.defaults);
-
-  $ pa11y-ci -c pa11y.js
-  Running Pa11y on 3 URLs:
-  https://peaceful-snyder-fc006c.netlify.com - 5 errors
-  https://peaceful-snyder-fc006c.netlify.com/about - 1 errors
-  https://peaceful-snyder-fc006c.netlify.com/privacy-policy - 1 errors
+  module.exports = pa11yconfig (config.urls, config.defaults);
 
 ```
 
@@ -176,26 +147,11 @@ _Keep with `cli` tools, as this will ensure integration with build pipeline will
 ```bash
 
 $ docker pull owasp/zap2docker-weekly
-$ docker run -t owasp/zap2docker-weekly zap-api-scan.py -t \ 
-http://jaffamonkey.com -f openapi
+$ docker run -t owasp/zap2docker-weekly zap-api-scan.py \ 
+  -t http://jaffamonkey.com -f openapi
 2019-07-30 20:55:13,781 Number of Imported URLs: 1
 Total of 2 URLs
 PASS: Directory Browsing [0]
-PASS: Cookie No HttpOnly Flag [10010]
-PASS: Cookie Without Secure Flag [10011]
-PASS: Incomplete or No Cache-control and Pragma HTTP Header Set [10015]
-PASS: Web Browser XSS Protection Not Enabled [10016]
-PASS: Cross-Domain JavaScript Source File Inclusion [10017]
-PASS: Content-Type Header Missing [10019]
-PASS: X-Frame-Options Header Scanner [10020]
-PASS: X-Content-Type-Options Header Missing [10021]
-PASS: HTTP Parameter Override [10026]
-PASS: Information Disclosure - Suspicious Comments [10027]
-PASS: Viewstate Scanner [10032]
-PASS: Secure Pages Include Mixed Content [10040]
-PASS: Source Code Disclosure - /WEB-INF folder [10045]
-PASS: Remote Code Execution - Shell Shock [10048]
-PASS: Cookie Without SameSite Attribute [10054]
 PASS: Possible Username Enumeration [40023]
 PASS: Source Code Disclosure - SVN [42]
 PASS: Script Active Scan Rules [50000]
@@ -205,7 +161,8 @@ PASS: Insecure HTTP Method [90028]
 PASS: Loosely Scoped Cookie [90033]
 WARN-NEW: Unexpected Content-Type was returned [100001] x 1 
 	http://jaffamonkey.com
-FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 1	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 71
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 1	WARN-INPROG: 0	
+INFO: 0	IGNORE: 0	PASS: 71
 
 ```
 
@@ -223,27 +180,20 @@ Common vulnerabilities are:
 * Unvalidated Redirects and Forwards
 
 ```bash
-sudo: required // Some installation actions require administrator-level access
-dist: trusty // Builds a mininal machine to runs tests on
-
+sudo: required
+dist: trusty
 addons:
-  chrome: stable // installs latest stable Chrome
-
-language: node_js // define primary platform language
-
+  chrome: stable
+language: node_js
 node_js:
-  - '11' // define primary platform language version
-  
+  - '11'
 branches:
   only:
-  - travis-ci // Specifies that only the 'travis-ci' branch will be used
-  
+  - travis-ci
 before_script:
-  - npm install chromedriver // installs chromedriver, the browser interaction service for Chrome.
-  - npm install selenium-webdriver // installs webdriver service to enable browser interaction.
-  
+  - npm install chromedriver selenium-webdriver
 script:
-  - node test.js // run the tests
+  - node test.js
 ```
 
 ## DevOps
