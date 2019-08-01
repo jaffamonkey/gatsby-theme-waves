@@ -14,7 +14,7 @@ const Title = ({ children, location }) => {
       <Styled.h1
         css={css({
           my: 0,
-          fontSize: 5,
+          fontSize: 4,
         })}
       >
         <Styled.a
@@ -35,7 +35,7 @@ const Title = ({ children, location }) => {
       <Styled.h1
         css={css({
           my: 0,
-          fontSize: 5,
+          fontSize: 4,
         })}
       >
         <Styled.a
