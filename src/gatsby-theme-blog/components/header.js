@@ -20,7 +20,7 @@ const Title = ({ children, location }) => {
         <Styled.a
           as={Link}
           css={{
-            color: `inherit`,
+            color: `#e37b34`,
             boxShadow: `none`,
             textDecoration: `none`,
           }}
@@ -36,6 +36,7 @@ const Title = ({ children, location }) => {
         as="p"
         css={css({
           my: 0,
+          fontSize: 5,
         })}
       >
         <Styled.a
