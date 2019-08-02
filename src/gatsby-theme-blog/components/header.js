@@ -107,7 +107,7 @@ export default ({ children, title, ...props }) => {
             mb: 4,
           })}
         >
-          <Styled.img src="./images/avatar.png" width="50"></Styled.img>
+          <Styled.img src="https://jaffamonkey.netlify.com/images/avatar.png" width="60"></Styled.img>
           <Title {...props}>{title}</Title>
           {children}
           <Switch
