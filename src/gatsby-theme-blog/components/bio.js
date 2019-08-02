@@ -21,33 +21,33 @@ const Bio = () => {
   } = data
 
   return (
-    <Flex css={css({ mb: 1 })}>
-      {avatar ? (
-        <Image
-          fixed={avatar.childImageSharp.fixed}
-          alt={author}
-          css={css({
-            mr: 2,
-            mb: 0,
-            width: 48,
-            borderRadius: 99999,
-          })}
-        />
-      ) : (
-          <div
-            css={css({
-              mr: 2,
-              mb: 0,
-              width: 48,
-              borderRadius: 99999,
-            })}
-            role="presentation"
-          />
-        )}
-      <Styled.div>
+    // <Flex css={css({ mb: 1 })}>
+    //   {avatar ? (
+    //     <Image
+    //       fixed={avatar.childImageSharp.fixed}
+    //       alt={author}
+    //       css={css({
+    //         mr: 0,
+    //         mb: 0,
+    //         width: 48,
+    //         borderRadius: 99999,
+    //       })}
+    //     />
+    //   ) : (
+    //       <div
+    //         css={css({
+    //           mr: 0,
+    //           mb: 0,
+    //           width: 48,
+    //           borderRadius: 99999,
+    //         })}
+    //         role="presentation"
+    //       />
+    //     )}
+    //   <Styled.div>
         <BioContent />
-      </Styled.div>
-    </Flex>
+      // </Styled.div>
+    // </Flex>
   )
 }
 

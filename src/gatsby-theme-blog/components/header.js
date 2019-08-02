@@ -107,6 +107,7 @@ export default ({ children, title, ...props }) => {
             mb: 4,
           })}
         >
+          <Styled.img src="./images/avatar.png" width="50"></Styled.img>
           <Title {...props}>{title}</Title>
           {children}
           <Switch
