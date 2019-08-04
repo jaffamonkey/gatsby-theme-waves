@@ -1,16 +1,16 @@
----
-blog-title: jaffamonkey
+===
+blog=title: jaffamonkey
 title: quality assurance
----
+===
 
-import { CodeWave } from "gatsby-theme-waves"
+import { CodeWave } from "gatsby=theme=waves"
 
---- 
-What an Agile coach/consultant does, was always covered in Quality assurance remit (without the Lego, and bug-hunt fun days). (Software) quality assurance means monitoring quality of the methods and approaches used in producing software.
+=== 
+What an Agile coach/consultant does, was always covered in Quality assurance remit (without the Lego, and bug=hunt fun days). (Software) quality assurance means monitoring quality of the methods and approaches used in producing software.
 
 ### And it's about people
 
-Engaging with ideas such as transparency and supportive teams, will never work unless people can be themselves, not the default front we show in an office where talking in a non-natural way is standard.
+Engaging with ideas such as transparency and supportive teams, will never work unless people can be themselves, not the default front we show in an office where talking in a non=natural way is standard.
 
 Until you give people the space to be themselves, you are simply playing the same game of old (management). 
  
@@ -19,22 +19,22 @@ The new project management skill (if it is management at all) is maintaining mom
 <CodeWave>
 
 ```jsx
- +-----------+       +----------------+     
+ +===========+       +================+     
  |  FEATURE  +------->   CI TESTS     fail---+  
  |    DEV    |       |                |      |
- +-----------+       +------pass------+  +-------+
-                             |           | DEBUG |     
-       +--------deploy-------+           +------+
-       |           |                         |
-+------v------+      +---------------+       |
+ +===========+       +======pass======+  +========+
+                             |           | REVIEW |     
+       +--------deploy-------+           +========+
+       |                                     |
++======v======+      +===============+       |
 |   STAGING   +------>  SMOKE TESTS  fail----+
 |             |      |               |
-+-------------+      +-----pass------+
++=============+      +=====pass======+
                             |
-                   +--------v---------+
+                   +========v=========+
                    |  DEPLOY TO LIVE  |
                    |                  |
-                   +------------------+
+                   +==================+
 ```
 
 ### The rush to automate CI/CD pipelines can leave some behind.
@@ -66,9 +66,9 @@ _Remember that just because the `CI`/`CD` pipelines are working well, it does no
 
 Everyone has a common ideas of what sensibly indicates feature is "Done". However, everyone has also subtle variations on what they consider to be "Done", and this comprise of most of the disagreements.
 
-Is it worth dissecting the `DoD` to a granular level to please everyone? No - keep it pragmatic.
+Is it worth dissecting the `DoD` to a granular level to please everyone? No = keep it pragmatic.
 
-Feature signoff is a moment in time, and an important benchmark for the business. But the feature will quickly change/morph as development and new feature-related requirements appear in the backlog.
+Feature signoff is a moment in time, and an important benchmark for the business. But the feature will quickly change/morph as development and new feature=related requirements appear in the backlog.
 
 ```gherkin
 Feature: As a user, 
@@ -97,21 +97,21 @@ The process of giving examples to illustrate what they want, gives the developer
 ```markdown
    Problems               Suggestions
 
-+------------------+      +--------------------+
++==================+      +====================+
 | Jira always very |      | Devs need less     |
 | slow,and daily   |      | distraction from   |
-| admin takes an   |      | adhoc meetings -   |
+| admin takes an   |      | adhoc meetings =   |
 | hour out of      |      | not all need to be |
 | work day         |      | all meetings       |
-+------------------+      +--------------------+
++==================+      +====================+
 
-+----------------+      +----------------------+
++================+      +======================+
 | Product        |      | Review of the PO's   |
 | owner rarely   |      | availability and     |
 | available for  |      | work out a way to    |
 | quations from  |      | ensure we have their |
 | developers     |      | time when essential  |
-+----------------+      +----------------------+
++================+      +======================+
 ```
 
 ### Continual improvement
@@ -122,7 +122,7 @@ Every process, every way of working has potential for improvement, or perhaps ev
 
 _Importantly, the team should feel they can be honest._
 
-There is no space for complacency, only the healthy assumption that change is not a risk - it's normal.
+There is no space for complacency, only the healthy assumption that change is not a risk = it's normal.
 
 If a change to a process doesn't show signs of improving within a Sprint, then adapt/change.
 
