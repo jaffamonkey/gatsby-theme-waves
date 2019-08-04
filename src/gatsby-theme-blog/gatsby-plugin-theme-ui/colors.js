@@ -1,10 +1,10 @@
-const purple60 = `#7FC4F8`
+const purple60 = `#116DB6`
 const purple30 = `#7FC4F8`
 const grey90 = `#232129`
-const black80 = `#1B1F23`
+const black80 = `#fff`
 const white = `#fff`
 const lightWhite = `rgba(255, 255, 255, 0.86)`
-const opaqueLightYellow = `rgba(255, 229, 100, 0.2)`
+const opaqueLightYellow = `#ccc`
 const opaqueLightWhite = `hsla(0, 0%, 100%, 0.2)`
 const lightGray = `hsla(0, 0%, 0%, 0.2)`
 
