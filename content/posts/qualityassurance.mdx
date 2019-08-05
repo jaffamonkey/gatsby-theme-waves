@@ -19,22 +19,22 @@ The new project management skill (if it is management at all) is maintaining mom
 <CodeWave>
 
 ```jsx
- +===========+       +================+     
+ +-----------+       +----------------+     
  |  FEATURE  +------->   CI TESTS     fail---+  
  |    DEV    |       |                |      |
- +===========+       +======pass======+  +========+
+ +-----------+       +------pass------+  +--------+
                              |           | REVIEW |     
-       +--------deploy-------+           +========+
+       +--------deploy-------+           +--------+
        |                                     |
-+======v======+      +===============+       |
-|   STAGING   +------>  SMOKE TESTS  fail----+
-|             |      |               |
-+=============+      +=====pass======+
++------v------+      +----------------+       |
+|   STAGING   +------>  SMOKE TESTS   fail----+
+|             |      |                |
++-------------+      +-----pass-------+
                             |
-                   +========v=========+
+                   +--------v---------+
                    |  DEPLOY TO LIVE  |
                    |                  |
-                   +==================+
+                   +------------------+
 ```
 
 ### The rush to automate CI/CD pipelines can leave some behind.
@@ -68,7 +68,7 @@ Everyone has a common ideas of what sensibly indicates when a `Feature` is "Done
 
 Is it worth dissecting the `DoD` to a granular level to please everyone? No - keep it pragmatic.
 
-`Feature` signoff is a moment in time, and an important benchmark for the business. But the feature will quickly change/morph as development and new feature=related requirements appear in the `Backlog`.
+`Feature` signoff is a moment in time, and an important benchmark for the business. But the feature will quickly change/morph as development and new feature-related requirements appear in the `Backlog`.
 
 ```gherkin
 Feature: As a user, 
@@ -97,21 +97,21 @@ The process of giving examples to illustrate what they want, gives the developer
 ```markdown
    Problems               Suggestions
 
-+==================+      +====================+
++------------------+      +--------------------+
 | Jira always very |      | Devs need less     |
 | slow,and daily   |      | distraction from   |
-| admin takes an   |      | adhoc meetings =   |
+| admin takes an   |      | adhoc meetings -   |
 | hour out of      |      | not all need to be |
 | work day         |      | all meetings       |
-+==================+      +====================+
++------------------+      +--------------------+
 
-+================+      +======================+
++----------------+      +----------------------+
 | Product        |      | Review of the PO's   |
 | owner rarely   |      | availability and     |
 | available for  |      | work out a way to    |
 | quations from  |      | ensure we have their |
 | developers     |      | time when essential  |
-+================+      +======================+
++----------------+      +----------------------+
 ```
 
 ### Continual improvement
@@ -122,7 +122,7 @@ Every process, every way of working has potential for improvement, or perhaps ev
 
 _Importantly, the team should feel they can be honest._
 
-There is no space for complacency, only the healthy assumption that change is not a risk = it's normal.
+There is no space for complacency, only the healthy assumption that change is not a risk - it's normal.
 
 If a change to a process doesn't show signs of improving within a `Sprint`, then adapt/change.
 
