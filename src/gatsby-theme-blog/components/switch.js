@@ -12,7 +12,7 @@ export const Switch = props => (
 )
 
 Switch.defaultProps = {
-  checkedIcon: false,
+  checkedIcon: true,
   uncheckedIcon: false,
   height: 24,
   width: 48,

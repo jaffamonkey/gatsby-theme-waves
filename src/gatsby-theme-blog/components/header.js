@@ -87,7 +87,7 @@ export default ({ children, title, ...props }) => {
   const [colorMode, setColorMode] = useColorMode()
   const isDark = colorMode === `dark`
   const toggleColorMode = e => {
-    setColorMode(isDark ? `light` : `dark`)
+    setColorMode(isDark ? `dark` : `light`)
   }
 
   return (
