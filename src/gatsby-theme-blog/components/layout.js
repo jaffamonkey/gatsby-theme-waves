@@ -10,6 +10,7 @@ export default ({ children, ...props }) => (
         css={css({
           maxWidth: `container`,
           mx: `auto`,
+          mt: 0,
           px: 3,
           py: 4,
         })}
