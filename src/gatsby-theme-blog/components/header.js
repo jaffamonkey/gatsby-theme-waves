@@ -20,7 +20,7 @@ const Title = ({ children, location }) => {
         <Styled.a
           as={Link}
           css={{
-            color: `#e37b34`,
+            color: `inherit`,
             boxShadow: `none`,
             textDecoration: `none`,
           }}
@@ -36,7 +36,6 @@ const Title = ({ children, location }) => {
         as="p"
         css={css({
           my: 0,
-          fontSize: 4,
         })}
       >
         <Styled.a
@@ -108,7 +107,6 @@ export default ({ children, title, ...props }) => {
             mb: 4,
           })}
         >
-          <Styled.img src="https://jaffamonkey.netlify.com/images/avatar.png" width="60"></Styled.img>
           <Title {...props}>{title}</Title>
           {children}
           <Switch
