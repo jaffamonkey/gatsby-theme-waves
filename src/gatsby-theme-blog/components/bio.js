@@ -27,8 +27,7 @@ const Bio = () => {
           fixed={avatar.childImageSharp.fixed}
           alt={author}
           css={css({
-            mr: 1,
-            mb: 0,
+            mr: 2,
             width: 100,
             borderRadius: 99999,
           })}
@@ -36,8 +35,7 @@ const Bio = () => {
       ) : (
           <div
             css={css({
-              mr: 1,
-              mb: 0,
+              mr: 2,
               width: 100,
               borderRadius: 99999,
             })}

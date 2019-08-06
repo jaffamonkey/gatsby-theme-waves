@@ -14,7 +14,7 @@ const Title = ({ children, location }) => {
       <Styled.h1
         css={css({
           my: 0,
-          fontSize: 4,
+          fontSize: 5,
         })}
       >
         <Styled.a
@@ -33,9 +33,9 @@ const Title = ({ children, location }) => {
   } else {
     return (
       <Styled.h1
-        as="p"
         css={css({
           my: 0,
+          fontSize: 5,
         })}
       >
         <Styled.a
