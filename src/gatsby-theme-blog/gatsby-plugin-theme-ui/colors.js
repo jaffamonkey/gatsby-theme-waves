@@ -1,4 +1,4 @@
-const purple60 = `#7FC4F8`
+const purple60 = `#f78c6c`
 const purple30 = `#7FC4F8`
 const grey90 = `#232129`
 const black80 = `#fff`
