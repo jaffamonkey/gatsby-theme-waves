@@ -19,22 +19,19 @@ The new project management skill (if it is management at all) is maintaining mom
 <CodeWave>
 
 ```jsx
- +-----------+       +----------------+     
- |  FEATURE  +------->   CI TESTS     fail---+  
- |    DEV    |       |                |      |
- +-----------+       +------pass------+  +--------+
-                             |           | REVIEW |     
-       +--------deploy-------+           +--------+
-       |                                     |
-+------v------+      +----------------+       |
-|   STAGING   +------>  SMOKE TESTS   fail----+
-|             |      |                |
-+-------------+      +-----pass-------+
-                            |
-                   +--------v---------+
-                   |  DEPLOY TO LIVE  |
-                   |                  |
-                   +------------------+
+### A example CD pipeline in words:
+
+1. A developer starts on feature branch
+2. (Failing) test added to feature branch
+3. Pushes changes to build server(CI)
+4. Feature work tested on build server
+4. Repeat 3-4 until feature completed
+5. All CI tests pass.
+6. Code changes deployed to staging site
+7. Automatic tests run to verify all ok
+8. PO check feature on staging site.
+9. Feature passes "Definition of Done"
+10. Scheduled for deployment to Live site.
 ```
 
 ### The rush to automate CI/CD pipelines can leave some behind.
@@ -95,23 +92,21 @@ One approach is using `Specification by example` approach to defining user stori
 The process of giving examples to illustrate what they want, gives the developers more direction. And provides a better basis for creating acceptance tests.
 
 ```markdown
-   Problems               Suggestions
 
-+------------------+      +--------------------+
-| Jira always very |      | Devs need less     |
-| slow,and daily   |      | distraction from   |
-| admin takes an   |      | adhoc meetings -   |
-| hour out of      |      | not all need to be |
-| work day         |      | all meetings       |
-+------------------+      +--------------------+
+> Jira always very slow, and daily distraction
+  from admin takes an hour out of work day
+>> Look at ways to minimise administration, and
+   also investigate performance issues.
 
-+-----------------+      +----------------------+
-| Product         |      | Review of the PO's   |
-| owner rarely    |      | availability and     |
-| available for   |      | work out a way to    |
-| questions from  |      | ensure we have their |
-| developers      |      | time when essential  |
-+-----------------+      +----------------------+
+> Devs need less adhoc meetings; the whole team
+  does not need to be in all meetings
+>> More thought should be applied by all, when 
+   organising a meeting.
+
+> Product owner rarely available for questions 
+  from developers
+>> Review of the PO's availability and work out 
+   a way to ensure we get feedback quickly
 ```
 
 ### Continual improvement
