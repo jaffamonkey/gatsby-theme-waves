@@ -28,7 +28,6 @@ const Bio = () => {
           alt={author}
           css={css({
             mr: 2,
-            width: 100,
             borderRadius: 99999,
           })}
         />
@@ -36,7 +35,6 @@ const Bio = () => {
           <div
             css={css({
               mr: 2,
-              width: 100,
               borderRadius: 99999,
             })}
             role="presentation"
