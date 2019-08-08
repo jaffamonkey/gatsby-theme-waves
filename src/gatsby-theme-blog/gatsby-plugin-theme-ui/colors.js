@@ -1,5 +1,7 @@
 const purple60 = `#663399`
 const purple30 = `#7FC4F8`
+const orange30 = `#e88200`
+const orange60 = `#e8831b`
 const grey90 = `#232129`
 const black80 = `#1B1F23`
 const white = `#fff`
@@ -13,6 +15,7 @@ export default {
   background: white,
   primary: purple60,
   secondary: black80,
+  homeheadline: orange60,
   muted: lightGray,
   highlight: opaqueLightYellow,
   heading: grey90,
@@ -37,6 +40,7 @@ export default {
       background: grey90,
       primary: purple30,
       secondary: lightWhite,
+      homeheadline: orange30,
       muted: opaqueLightWhite,
       highlight: purple60,
       heading: white,

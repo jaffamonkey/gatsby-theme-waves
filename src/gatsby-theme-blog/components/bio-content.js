@@ -7,8 +7,12 @@ import { Styled, css } from "theme-ui"
 
 export default () => (
   <Fragment>
-    <Styled.h2>quality engineering</Styled.h2>
-    <Styled.h5>pragmatic improvements to CI/CD and embedding quality in ways of working</Styled.h5>
-    {/* <Styled.img src="./cicd.png"></Styled.img> */}
+    <Styled.h2
+        css={css({
+          mb: 10,
+          color: `homeheadline`,
+        })}
+      >quality engineering</Styled.h2>
+    <strong>quality</strong><em> assurance and test </em><strong>engineering</strong>
   </Fragment>
 )
