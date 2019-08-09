@@ -23,6 +23,7 @@ module.exports = {
       {
         name: `sms`,
         url: `sms:+447739670315`,
+        image: ``
       },
       {
         name: `call`,

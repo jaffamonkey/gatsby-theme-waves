@@ -42,8 +42,6 @@ export default {
       width: "100%",
       height: ["100%", "60vh"],
       top: ["auto", "20vh"],
-      // border: ["none", "1px solid"],
-      // borderColor: "secondary",
     },
     // this is used to select the active scroller step
     // 0.5 selects the step that is at half the screen height

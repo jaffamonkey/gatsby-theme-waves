@@ -11,7 +11,7 @@ export default {
     color: `white`,
     bg: `prism.background`,
     overflow: `auto`,
-    borderRadius: 10,
+    borderRadius: 20,
     p: 3,
   },
   code: {

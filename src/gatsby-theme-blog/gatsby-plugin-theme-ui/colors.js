@@ -1,4 +1,4 @@
-const purple60 = `#191970`
+const purple60 = `#005b96`
 const purple30 = `#7FC4F8`
 const orange30 = `#e88200`
 const orange60 = `#e8831b`
@@ -8,6 +8,7 @@ const white = `#fff`
 const midnightblue	 = `#696969`
 const lightWhite = `rgba(255, 255, 255, 0.86)`
 const opaqueLightYellow = `rgba(255, 229, 100, 0.2)`
+const lightBlue = `#b3cde0`
 const opaqueLightWhite = `hsla(0, 0%, 100%, 0.2)`
 const lightGray = `hsla(0, 0%, 0%, 0.2)`
 
@@ -18,7 +19,7 @@ export default {
   secondary: black80,
   homeheadline: orange60,
   muted: lightGray,
-  highlight: opaqueLightYellow,
+  highlight: lightBlue,
   heading: grey90,
   prism: {
     background: `#011627`,

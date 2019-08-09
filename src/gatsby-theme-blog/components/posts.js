@@ -16,6 +16,7 @@ const Posts = ({ location, posts, siteTitle, socialLinks }) => (
               <Styled.h2
                 css={css({
                   mb: 1,
+                  color: 'number'
                 })}
               >
                 <Styled.a
@@ -34,7 +35,8 @@ const Posts = ({ location, posts, siteTitle, socialLinks }) => (
           </Fragment>
         )
       })}
-    </main><br />
+    </main>
+    <br />
     <Styled.div><a href="https://jaffamonkey.netlify.com/whoihavehelped"><img Hspace="5" width="45" src="./images/clients/nike.jpg" alt="Nike" /><img Hspace="5" width="45" src="./images/clients/tele2.jpg" alt="Nike" />
   <img Hspace="5" width="45" src="./images/clients/disney.jpg" alt="Nike" /><img Hspace="5" width="45" src="./images/clients/engine.jpg" alt="Nike" /><img Hspace="5" width="45" src="./images/clients/sonyplaystation.jpg" alt="Nike" /><img Hspace="5" width="45" src="./images/clients/o2.jpg" alt="o2" /><img Hspace="5" width="45" src="./images/clients/citibank.jpg" alt="Nike" /><img Hspace="5" width="45" src="./images/clients/digitas.jpg" alt="Nike" /><img Hspace="5" width="45" src="./images/clients/incisivemedia.jpg" alt="Nike" /></a><img Hspace="5" width="45" src="./images/clients/wowcher.jpg" alt="Nike" /><img Hspace="5" width="45" src="./images/clients/bbc.jpg" alt="Nike" /><img Hspace="5" width="45" src="./images/clients/pearson.jpg" alt="Nike" />
   <br /></Styled.div>

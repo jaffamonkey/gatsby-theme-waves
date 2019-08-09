@@ -36,6 +36,7 @@ export default {
       top: [0, "auto"],
       zIndex: [1, "auto"],
       height: ["50vh", "auto"],
+      borderRadius: "20px",
     },
     Sticker: {
       position: ["static", "sticky"],
@@ -44,6 +45,7 @@ export default {
       top: ["auto", "20vh"],
       border: ["none", "1px solid"],
       borderColor: "secondary",
+      borderRadius: "20px",
     },
     // this is used to select the active scroller step
     // 0.5 selects the step that is at half the screen height
