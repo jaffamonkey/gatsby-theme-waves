@@ -108,7 +108,10 @@ export default ({ children, title, ...props }) => {
             alignItems: `baseline`,
             mb: 4,
           })}
-        >        <div
+        >       
+          <Title {...props}>{title}</Title>
+          {children}
+          <div
         css={css({
           display: `flex`,
           alignItems: `right`,
@@ -126,8 +129,6 @@ export default ({ children, title, ...props }) => {
           checked={isDark}
           onChange={toggleColorMode}
         /></div>
-          <Title {...props}>{title}</Title>
-          {children}
         </div>
         {props.location.pathname === rootPath && <Bio />}
       </div>
