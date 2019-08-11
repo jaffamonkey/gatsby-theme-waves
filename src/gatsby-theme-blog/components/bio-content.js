@@ -8,11 +8,11 @@ import { Styled, css } from "theme-ui"
 export default () => (
   <Fragment>
     <Styled.h2
-        css={css({
-          mb: 10,
-          color: `homeheadline`,
-        })}
-      >quality engineering</Styled.h2>
-    <strong>quality</strong><em> assurance and test </em><strong>engineering</strong>
+      css={css({
+        mb: 10,
+        color: `homeheadline`,
+      })}
+    >Quality engineering</Styled.h2>
+    <h3><code class="css-fa1w8j">Quality assurance</code> and <code class="css-fa1w8j">Test engineering</code></h3>
   </Fragment>
 )
