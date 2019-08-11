@@ -108,19 +108,26 @@ export default ({ children, title, ...props }) => {
             alignItems: `baseline`,
             mb: 4,
           })}
-        >
+        >        <div
+        css={css({
+          display: `flex`,
+          alignItems: `right`,
+          align: `right`,
+          mb: 1,
+        })}
+      ><Switch
+          aria-label="Toggle dark mode"
+          css={css({
+            bg: `black`,
+            align: `right`
+          })}
+          checkedIcon={checkedIcon}
+          uncheckedIcon={uncheckedIcon}
+          checked={isDark}
+          onChange={toggleColorMode}
+        /></div>
           <Title {...props}>{title}</Title>
           {children}
-          <Switch
-            aria-label="Toggle dark mode"
-            css={css({
-              bg: `black`,
-            })}
-            checkedIcon={checkedIcon}
-            uncheckedIcon={uncheckedIcon}
-            checked={isDark}
-            onChange={toggleColorMode}
-          />
         </div>
         {props.location.pathname === rootPath && <Bio />}
       </div>
