@@ -13,7 +13,7 @@ const Posts = ({ location, posts, siteTitle, socialLinks }) => (
         return (
           <Fragment key={node.slug}>
             <div>
-              <Styled.h2
+              <Styled.h3
                 css={css({
                   mb: 1,
                   color: 'number'
@@ -28,7 +28,7 @@ const Posts = ({ location, posts, siteTitle, socialLinks }) => (
                 >
                   {title}
                 </Styled.a>
-              </Styled.h2>
+              </Styled.h3>
               <small>{node.date}</small>
               <Styled.p>{node.excerpt}</Styled.p>
             </div>

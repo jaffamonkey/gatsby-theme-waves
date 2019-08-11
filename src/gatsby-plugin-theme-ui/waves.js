@@ -43,7 +43,7 @@ export default {
       width: "100%",
       height: ["100%", "60vh"],
       top: ["auto", "20vh"],
-      border: ["none", "1px solid"],
+      border: ["none", "0px solid"],
       borderColor: "secondary",
       borderRadius: "20px",
     },

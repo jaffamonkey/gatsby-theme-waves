@@ -17,23 +17,27 @@ const Post = ({
   previous,
   next,
 }) => (
-  <Layout location={location} title={title}>
-    <SEO title={post.title} description={post.excerpt} />
-    <main>
-      <Styled.h1>{post.title}</Styled.h1>
-      <Styled.p
-        css={css({
-          fontSize: 1,
-          mt: -3,
-          mb: 3,
-        })}
-      >
-        {post.date}
-      </Styled.p>
-      <MDXRenderer>{post.body}</MDXRenderer>
-    </main>
-    <PostFooter {...{ previous, next }} />
-  </Layout>
-)
+    <Layout location={location} title={title}>
+      <SEO title={post.title} description={post.excerpt} />
+      <main>
+        <Styled.h2
+          css={css({
+            color: `homeheadline`,
+          })}
+        >{post.title}</Styled.h2>
+        <Styled.p
+          css={css({
+            fontSize: 1,
+            mt: -3,
+            mb: 3,
+          })}
+        >
+          {post.date}
+        </Styled.p>
+        <MDXRenderer>{post.body}</MDXRenderer>
+      </main>
+      <PostFooter {...{ previous, next }} />
+    </Layout>
+  )
 
 export default Post
