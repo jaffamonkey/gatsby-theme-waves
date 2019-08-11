@@ -8,7 +8,45 @@ import { CodeWave } from "gatsby-theme-waves"
 
 ####
 
-> **_What an `Agile` coach/consultant does, was always covered in `Quality assurance` remit (without the Lego, and bug-hunt fun days). (Software) `Quality assurance` means monitoring quality of the methods and approaches used in producing software._**
+> **_What an `Agile` coach/consultant does, was always covered in `Quality assurance` remit (without the Lego, and bug-hunt fun days). _**
+
+<CodeWave>
+
+```jsx
+const { startPointlessProcess, stopPointlessProcess, ignoreFeedback 
+      } = require('agile-improvement-by-process-obsession');
+const anxiousProductOwner;
+const realisationProcessWasPointless;
+
+async function setup(env = 'killsAWorkingDay', 
+  configFile = './conf/teamBuilding.conf.js') {
+    await startPointlessProcess({ env, configFile }); }
+
+async function shutdown() {
+  await realisationProcessWasPointless();
+  await stopPointlessProcess();
+  await ignoreFeedback(); }
+
+async function run() {
+  const transparency = process.env.BUSINESS_TRANSPARENCY_LEVEL || 10
+
+  await anxiousProductOwner
+    .disturbed.By('KPI').request.status('Feature B') 
+    .apply.needlessPressureLevel().assert.transparency.value(5)
+    .poke('Scrummaster').assert.transparency.value(7)
+    .call.meeting.type('General whining')
+    .assert.productOwnerStatus('I am stressed')
+    .assert.teamStatus('Demoralised');
+}
+
+(async function () {
+  try { await setup('team');
+        await run(); } 
+      catch (feedback) { console.log(feedback.stack); } 
+  finally 
+      { await shutdown(); }
+})();
+```
 
 ### And it's about people
 
@@ -18,7 +56,6 @@ Until you give people the space to be themselves, you are simply playing the sam
  
 The new project management skill (if it is management at all) is maintaining momentum with a group of individuals with complete freedom to express themselves. It's a challenge but a worthwhile one.
 
-<CodeWave>
 
 ```jsx
 ### A example CD pipeline in words:
@@ -36,9 +73,9 @@ The new project management skill (if it is management at all) is maintaining mom
 10. Scheduled for deployment to Live site.
 ```
 
-### The rush to automate CI/CD pipelines can leave some behind.
+### CI/CD pipelines
 
-For the client, `Feature` completion is the success.
+The rush to automate CI/CD pipelines can leave some behind - but for the anxiousProductOwner, `Feature` completion is the success benchmark.
 
 But the path of developing that feature can easily get skewed in the path to buisness acceptance.
 
