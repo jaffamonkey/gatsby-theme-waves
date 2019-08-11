@@ -13,29 +13,24 @@ import { CodeWave } from "gatsby-theme-waves"
 <CodeWave>
 
 ```jsx
-const { startPointlessProcess, stopPointlessProcess, ignoreFeedback 
-      } = require('agile-improvement-by-process-obsession');
-const anxiousProductOwner;
-const realisationProcessWasPointless;
+const { anxiousProductOwner, startPointlessProcess, 
+        stopPointlessProcess, ignoreFeedback } = require('agile-coach');
 
 async function setup(env = 'killsAWorkingDay', 
   configFile = './conf/teamBuilding.conf.js') {
     await startPointlessProcess({ env, configFile }); }
 
 async function shutdown() {
-  await realisationProcessWasPointless();
   await stopPointlessProcess();
   await ignoreFeedback(); }
 
 async function run() {
   const transparency = process.env.BUSINESS_TRANSPARENCY_LEVEL || 10
-
   await anxiousProductOwner
     .disturbed.By('KPI').request.status('Feature B') 
     .apply.needlessPressureLevel().assert.transparency.value(5)
     .poke('Scrummaster').assert.transparency.value(7)
     .call.meeting.type('General whining')
-    .assert.productOwnerStatus('I am stressed')
     .assert.teamStatus('Demoralised');
 }
 
