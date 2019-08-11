@@ -21,8 +21,6 @@ const Footer = ({ socialLinks }) => (
       </Fragment>
     ))}
     <Fragment>
-      <br /><br />
-      <Styled.h1><img src="./images/code/java.svg" height="40" alt="java" /><img src="./images/code/js.svg" width="40" alt="js" /><img src="./images/code/php.svg" width="40" alt="php" /><img src="./images/code/python.svg" width="40" alt="python" /><img src="./images/code/swift.svg" width="40" alt="swift" /></Styled.h1>
       <Styled.p>© 2019 jaffamonkey B.V. (KVK 71855157) Vestigingsnr: 1012 RP Amsterdam</Styled.p>
     </Fragment>
   </footer>

@@ -11,6 +11,9 @@ export default {
       position: "relative",
       display: ["block", "flex"],
     },
+    CodeWave: {
+      borderRadius: ["24px"],
+    },
     ScrollerContainer: {
       flex: 1,
       paddingLeft: [0, "50px"],
