@@ -27,7 +27,7 @@ export default {
       position: "fixed",
       top: 0,
       left: 0,
-      backgroundColor: "rgba(1, 1, 1, 0.6)",
+      backgroundColor: "rgba(255,255,255, 0)",
       zIndex: -1,
     },
     Sticker: {
