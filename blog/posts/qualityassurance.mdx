@@ -1,0 +1,170 @@
+---
+blog-title: jaffamonkey
+title: Quality assurance
+date: July 31, 2019
+---
+
+import { CodeWave } from "gatsby-theme-waves"
+
+####
+
+> **_What an `Agile` coach/consultant does, was always covered in `Quality assurance` remit (without the Lego, and bug-hunt fun days). _**
+
+<CodeWave>
+
+```javascript
+const { anxiousProductOwner, startPointlessProcess, 
+        stopPointlessProcess, ignoreFeedback } = require('agile-instigator');
+
+async function setup(env = 'killsAWorkingDay', 
+  configFile = './conf/teamBuilding.conf.js') {
+    await startPointlessProcess({ env, configFile }); }
+
+async function shutdown() {
+  await stopPointlessProcess();
+  await ignoreFeedback(); }
+
+async function run() {
+  const transparency = process.env.BUSINESS_TRANSPARENCY_LEVEL || 10
+  await anxiousProductOwner
+    .disturbed.By('KPI').request.status('Feature B') 
+    .apply.needlessPressureLevel().assert.transparency.value(5)
+    .poke('Scrummaster').assert.transparency.value(7)
+    .call.meeting.type('General whining')
+    .assert.teamStatus('Demoralised');
+}
+
+(async function () {
+  try { await setup('team');
+        await run(); } 
+      catch (feedback) { console.log(feedback.stack); } 
+  finally 
+      { await shutdown(); }
+})();
+```
+
+### And it's about people
+
+Engaging with ideas such as transparency and supportive teams, will never work unless people can be themselves, not the default front we show in an office where talking in a non-natural way is standard.
+
+Until you give people the space to be themselves, you are simply playing the same game of old (management). 
+ 
+The new project management skill (if it is management at all) is maintaining momentum with a group of individuals with complete freedom to express themselves. It's a challenge but a worthwhile one.
+
+
+```jsx
+### A example CD pipeline in words:
+
+1. A developer starts on feature branch
+2. (Failing) test added to feature branch
+3. Pushes changes to build server(CI)
+4. Feature work tested on build server
+4. Repeat 3-4 until feature completed
+5. All CI tests pass.
+6. Code changes deployed to staging site
+7. Automatic tests run to verify all ok
+8. PO check feature on staging site.
+9. Feature passes "Definition of Done"
+10. Scheduled for deployment to Live site.
+```
+
+### CI/CD pipelines
+
+The rush to automate `CI`/`CD` pipelines can leave some behind - but for the `Product owner`, `Feature` completion is the success benchmark.
+
+But the path of developing that feature can easily get skewed in the path to buisness acceptance.
+
+Getting a shared view of the journey of a `Feature` through the project pipeline from the outset, will smooth the daily work.
+
+`Quality assurance` has unique vantage point on a project, and quality is of interest to everyone.
+
+_Remember that just because the `CI`/`CD` pipelines are working well, it does not mean it is doing the right job_ 
+
+```jsx
+* I want it to look nice
+* I want to see animations
+* I want to be happy with it
+* I want the acceptance tests to pass
+* I want the stakeholders to be happy
+* I want them to overlook something we missed
+* I want to decide when it's done
+* I want it to be exactly like first agreed
+* I want it with all my adhoc suggestions
+* I want more exploratory testing
+* I don't care
+* ...
+```
+
+### Definition of Done
+
+Everyone has a common idea of what sensibly indicates when a `Feature` is "Done". 
+
+However, everyone has also subtle variations on what they consider to be "Done".
+
+Is it worth dissecting the `DoD` to a granular level to please everyone? No - keep it pragmatic.
+
+`Feature` signoff is a moment in time, and an important benchmark for the business. 
+
+But the feature will quickly change/morph as development and new feature-related requirements appear in the `Backlog`.
+
+```gherkin
+Feature: As a user, 
+         I want a helpful search page, 
+         so I can find relevant results quickly
+  
+Scenario: Test searching (happy path)
+  Given I perform search for "BDD" 
+  When I filter results containing "Gherkin"
+  And order search results by relevance
+  Then first result title contains "Gherkin"
+
+Scenario: Testing searching (unhappy path)
+  Given I perform search for "BDDD" 
+  Then suggestion "Did you mean BDD?" displayed
+```
+
+### Requirements
+
+The `User story` format can be vague, so encourage the `Product owner` or `Business analyst` to adopt different approach to requirements. Sometimes people just need to be shown a direction, to change the way they work.
+
+One approach is using `Specification by example` approach to defining user stories. 
+
+This approach encourages people to think their user story through, rather than just high level view.
+
+The process of giving examples to illustrate what they want, gives the developers more direction. 
+
+It provides a better basis for creating acceptance tests.
+
+```markdown
+
+> Jira always very slow, and daily distraction
+  from admin takes an hour out of work day
+>> Look at ways to minimise administration, and
+   also investigate performance issues.
+
+> Devs need less adhoc meetings; the whole team
+  does not need to be in all meetings
+>> More thought should be applied by all, when 
+   organising a meeting.
+
+> Product owner rarely available for questions 
+  from developers
+>> Review of the PO's availability and work out 
+   a way to ensure we get feedback quickly
+```
+
+### Continual improvement
+
+All quality efforts, at all stages of the project pipeline, should regularly be reviewed.
+
+Every process, every way of working has potential for improvement, or perhaps even losing it alltogether.
+
+_Importantly, the team should feel they can be honest._
+
+The healthy assumption that change is not a risk, it's normality and simply illustratvie of how humans learn and adapt.
+
+In Agile space, Far too much time is spent analysing our own (human) behaviour - it's a Groundhog day.
+
+If a change to a process doesn't show signs of improving within a `Sprint`, then adapt/change.
+
+</CodeWave>

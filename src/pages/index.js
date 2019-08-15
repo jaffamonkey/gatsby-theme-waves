@@ -6,6 +6,8 @@ import codeWebm from "./media/code.webm"
 import codeMp4 from "./media/code.mp4"
 import imagesWebm from "./media/images.webm"
 import imagesMp4 from "./media/images.mp4"
+import mapsWebm from "./media/maps.webm"
+import mapsMp4 from "./media/maps.mp4"
 import deckWebm from "./media/deck.webm"
 import deckMp4 from "./media/deck.mp4"
 import image from "./media/home.jpg"
@@ -18,6 +20,12 @@ const demos = [
     link: "/blog/post",
     webmSrc: codeWebm,
     mp4Src: codeMp4,
+  },
+  {
+    title: "Maps Wave",
+    webmSrc: mapsWebm,
+    mp4Src: mapsMp4,
+    link: "/maps",
   },
   {
     title: "Deck Wave",
@@ -67,7 +75,7 @@ export default () => {
             alignItems: "center",
           }}
         >
-          {/* <Styled.h1
+          <Styled.h1
             sx={{ fontSize: [3, 4], margin: 0, color: "rgba(20,20,20,0.8)" }}
           >
             Gatsby Theme Waves
@@ -77,7 +85,7 @@ export default () => {
             sx={{ color: "rgba(20,20,20,0.8)", fontSize: [1, 3] }}
           >
             GitHub
-          </Styled.a> */}
+          </Styled.a>
         </Header>
         <Container
           sx={{ padding: ["56px 0 0 0", "120px 0"], maxWidth: "868px" }}

@@ -1,0 +1,211 @@
+---
+blog-title: jaffamonkey
+title: Test engineering
+date: July 31, 2019
+---
+
+import { CodeWave } from "gatsby-theme-waves"
+
+####
+
+> # `less` is `more`
+
+<CodeWave>
+
+```bash
+$ curl -s -v -o /dev/null -I -w "%{http_code}" \
+  http://jaffamonkey.com
+*   Trying 35.169.225.248...
+* TCP_NODELAY set
+* Expire in 149999 ms for 3 (transfer 0x55a114e985c0)
+* Expire in 200 ms for 4 (transfer 0x55a114e985c0)
+* Connected to jaffamonkey.com (35.169.225.248) port 80
+> HEAD / HTTP/1.1
+> Host: jaffamonkey.com
+> User-Agent: curl/7.64.0
+> Accept: */*
+> 
+< HTTP/1.1 301 Moved Permanently
+< Date: Fri, 26 Jul 2019 11:49:40 GMT
+< Connection:Keep-Alive
+< Content-Length: 0
+< Cache-Control: private, no-cache, no-store, max-age=0
+< Expires: Mon, 01 Jan 1990 0:00:00 GMT
+< Location: https://jaffamonkey.netlify.com
+< 
+* Connection #0 to host jaffamonkey.com left intact
+```
+### `Test engineering` is where Testing meets `DevOps`
+
+It's all about what's appropriate, to both development and business sides to a project.
+
+Sometimes investing is a feature-rich `Test framework` is a good idea, but starting small is always the best place to start.
+
+A `Test framework` that is well-thought out and maintained, will retain usefulness for the whole team.
+
+But if you have intergation with `CI`/`CD` in sight, then you had better make sure tests run as lean (fast) as possible.
+
+
+
+
+```bash
+$ npm install -g assert superagent
+
+// test-api.js
+const superagent = require('superagent');
+const assert = require('assert');
+
+superagent
+  .get('http://localhost:3001/api/v1/todos')
+  .end((err, res) => {
+    assert.ifError(err);
+    assert.equal(res.status, 200);
+    console.log('Result: ' + res.text)
+    });
+
+$ node test-api.js
+Result: {"success":"true","message":
+"todos retrieved successfully",
+"todos":[{"id":1,"title":"example"}]}
+```
+## Native code or package?
+
+Start with too many packages, then you will quickly end up with an unused test framework.
+
+Start small - don't use a package if it can be coded natively.
+
+Conversely, don't waste too much time on native code - packages are there too help you, just be selective.
+
+The API test is a very basic example, but step up to UI tests (with reporting) and already complexitiy increases.
+
+```bash
+$ npm install -g artillery
+$ artillery quick -d 60 -r 10 -k https://jaffamonkey.netlify.com
+Started phase 0, duration: 60s @ 18:37:13(+0200) 2019-08-01
+
+All virtual users finished
+Summary report @ 18:38:13(+0200) 2019-08-01
+  Scenarios launched:  600
+  Scenarios completed: 560
+  Requests completed:  560
+  RPS sent: 9.94
+  Request latency:
+    min: 84.4
+    max: 1149.5
+    median: 99.3
+    p95: 226.4
+    p99: 776
+  Scenario counts:
+    0: 600 (100%)
+  Codes:
+    200: 560
+  Errors:
+    EHOSTUNREACH: 40
+```
+
+### Performance tests should be standard
+
+#### Load testing
+
+You don't need to run a heavy `Load test` to get useful feedback.
+
+Developers always appreciate feedback on performance impact from their code changes.
+
+_Choose tools that do not add too much overhead  on the `Build server`, as ideally it should run as part of build checks._
+
+```js
+// pa11y-test.js
+var config = {
+    defaults: {
+      screenCapture: './_pa11y-screen-capture.png',
+      standard: 'WCAG2AA',
+      ignore: [ 'notice' ]
+    },
+    urls: ['https://agitated-hawking-da0192.netlify.com/1']
+  };
+  function pa11yconfig(urls, defaults) {
+    console.error('Env:', process.env.TEST_SRV);
+    for (var idx = 0; idx < urls.length; idx++) {
+      urls[ idx ] = urls[ idx ]
+        .replace('${TEST_SRV}', process.env.TEST_SRV);
+    }
+    return {
+      defaults: defaults,
+      urls: urls
+    }
+  };
+  module.exports = pa11yconfig (config.urls, config.defaults);
+
+```
+
+#### Accessibility
+
+There are several `Web accessibility` tools that are easy to integrate as part of `CI`.
+
+These tools will check against the `WCAG2` standards, but final evaluation should be with real users with real accessibility devices and software.
+
+Implementing a tool to run automated checks across the web/mobile app will keep development on track.
+
+_Keep with `CLI` tools, as this will ensure integration with the build pipeline will have less impact/overheads_
+
+```bash
+$ docker pull owasp/zap2docker-weekly
+$ docker run -t owasp/zap2docker-weekly zap-api-scan.py \ 
+  -t http://jaffamonkey.com -f openapi
+2019-07-30 20:55:13,781 Number of Imported URLs: 1
+Total of 2 URLs
+PASS: Directory Browsing [0]
+PASS: Possible Username Enumeration [40023]
+PASS: Source Code Disclosure - SVN [42]
+PASS: Script Active Scan Rules [50000]
+PASS: Script Passive Scan Rules [50001]
+PASS: Path Traversal [6]
+PASS: Insecure HTTP Method [90028]
+PASS: Loosely Scoped Cookie [90033]
+WARN-NEW: Unexpected Content-Type was returned [100001] x 1 
+	http://jaffamonkey.com
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 1	WARN-INPROG: 0	
+INFO: 0	IGNORE: 0	PASS: 71
+
+```
+
+#### Security testing
+
+There is a lot you can test client-side to avoid the emabrassing security errors.
+
+Common vulnerabilities are:
+
+* SQL Injection
+* Cross Site Scripting
+* Insecure Direct Object References
+* Cross Site Request Forgery
+* Failure to restrict URL Access
+* Unvalidated Redirects and Forwards
+
+```bash
+sudo: required
+dist: trusty
+addons:
+  chrome: stable
+language: node_js
+node_js:
+  - '11'
+branches:
+  only:
+  - travis-ci
+before_script:
+  - npm install chromedriver selenium-webdriver
+script:
+  - node test.js
+```
+
+## DevOps
+
+Here are some ways that `Test engineering` easily helps with `DevOps`
+
+* `Dockerise` your test framework (better portability and ease of running).
+* Keep package-count low, and specify versions so pointless updates do not occur.
+* Ensure processes are properly "killed" at the end of test runs.
+* Use cloud service to store historical reports and other test artifacts (like screenshots)
+
+</CodeWave>
