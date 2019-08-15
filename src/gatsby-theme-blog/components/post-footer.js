@@ -13,7 +13,7 @@ const Footer = ({ previous, next }) => (
   >
     <Styled.hr />
     <Bio />
-    {(previous || next) && (
+    {/* {(previous || next) && (
       <Flex
         as="ul"
         css={{
@@ -37,7 +37,7 @@ const Footer = ({ previous, next }) => (
             </Styled.a>
           )}
         </li>
-      </Flex>
+      </Flex> */}
     )}
   </footer>
 )

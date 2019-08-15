@@ -29,7 +29,6 @@ const Posts = ({ location, posts, siteTitle, socialLinks }) => (
                   {title}
                 </Styled.a>
               </Styled.h3>
-              <small>{node.date}</small>
               <Styled.p>{node.excerpt}</Styled.p>
             </div>
           </Fragment>

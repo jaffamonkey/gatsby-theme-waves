@@ -32,7 +32,6 @@ const Post = ({
             mb: 3,
           })}
         >
-          {post.date}
         </Styled.p>
         <MDXRenderer>{post.body}</MDXRenderer>
       </main>
