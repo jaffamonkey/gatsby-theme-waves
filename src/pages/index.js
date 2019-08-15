@@ -16,29 +16,42 @@ import { Helmet } from "react-helmet"
 
 const demos = [
   {
-    title: "Code Wave",
-    link: "/blog/post",
+    title: "Origins",
+    link: "/blog/origins",
     webmSrc: codeWebm,
     mp4Src: codeMp4,
   },
   {
-    title: "Maps Wave",
-    webmSrc: mapsWebm,
-    mp4Src: mapsMp4,
-    link: "/maps",
+    title: "Test Engineering",
+    link: "/blog/testengineering",
+    webmSrc: codeWebm,
+    mp4Src: codeMp4,
   },
   {
-    title: "Deck Wave",
+    title: "Quality Assurance",
     webmSrc: deckWebm,
     mp4Src: deckMp4,
     link: "/deck",
   },
   {
-    title: "Image Wave",
+    title: "Clients",
     webmSrc: imagesWebm,
     mp4Src: imagesMp4,
     link: "/images",
   },
+  {
+    title: "Contact",
+    webmSrc: mapsWebm,
+    mp4Src: mapsMp4,
+    link: "/maps",
+  },
+  {
+    title: "Workhop",
+    link: "/blog/post",
+    webmSrc: codeWebm,
+    mp4Src: codeMp4,
+  },
+
 ]
 
 const theme = {
@@ -75,17 +88,7 @@ export default () => {
             alignItems: "center",
           }}
         >
-          <Styled.h1
-            sx={{ fontSize: [3, 4], margin: 0, color: "rgba(20,20,20,0.8)" }}
-          >
-            Gatsby Theme Waves
-          </Styled.h1>
-          <Styled.a
-            href="https://github.com/pomber/gatsby-theme-waves"
-            sx={{ color: "rgba(20,20,20,0.8)", fontSize: [1, 3] }}
-          >
-            GitHub
-          </Styled.a>
+       put something new here
         </Header>
         <Container
           sx={{ padding: ["56px 0 0 0", "120px 0"], maxWidth: "868px" }}
@@ -99,7 +102,7 @@ export default () => {
             }}
           >
             {demos.map((demo, i) => (
-              <Demo key={i} {...demo} big={i === 0} />
+              <Demo key={i} {...demo} />
             ))}
           </div>
         </Container>
