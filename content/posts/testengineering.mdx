@@ -35,18 +35,13 @@ $ curl -s -v -o /dev/null -I -w "%{http_code}" \
 < 
 * Connection #0 to host jaffamonkey.com left intact
 ```
-### `Test engineering` is where Testing meets `DevOps`
+## Testing meets `DevOps`
 
 It's all about what's appropriate, to both development and business sides to a project.
 
 Sometimes investing is a feature-rich `Test framework` is a good idea, but starting small is always the best place to start.
 
-A `Test framework` that is well-thought out and maintained, will retain usefulness for the whole team.
-
-But if you have intergation with `CI`/`CD` in sight, then you had better make sure tests run as lean (fast) as possible.
-
-
-
+But if you have integration with `CI`/`CD` in sight, then the tests run must be as lean (fast) as possible.
 
 ```bash
 $ npm install -g assert superagent
@@ -76,8 +71,6 @@ Start small - don't use a package if it can be coded natively.
 
 Conversely, don't waste too much time on native code - packages are there too help you, just be selective.
 
-The API test is a very basic example, but step up to UI tests (with reporting) and already complexitiy increases.
-
 ```bash
 $ npm install -g artillery
 $ artillery quick -d 60 -r 10 -k https://jaffamonkey.netlify.com
@@ -103,9 +96,7 @@ Summary report @ 18:38:13(+0200) 2019-08-01
     EHOSTUNREACH: 40
 ```
 
-### Performance tests should be standard
-
-#### Load testing
+## Load testing
 
 You don't need to run a heavy `Load test` to get useful feedback.
 
@@ -138,7 +129,7 @@ var config = {
 
 ```
 
-#### Accessibility
+## Web accessibility
 
 There are several `Web accessibility` tools that are easy to integrate as part of `CI`.
 
@@ -169,18 +160,16 @@ INFO: 0	IGNORE: 0	PASS: 71
 
 ```
 
-#### Security testing
+## Security testing
 
-There is a lot you can test client-side to avoid the emabrassing security errors.
+There is a lot you can test client-side to avoid the more emabrassing security errors.
 
 Common vulnerabilities are:
 
-* SQL Injection
-* Cross Site Scripting
-* Insecure Direct Object References
-* Cross Site Request Forgery
-* Failure to restrict URL Access
-* Unvalidated Redirects and Forwards
+- SQL Injection
+- Cross Site Scripting
+- Cross Site Request Forgery
+- Failure to restrict URL Access
 
 ```bash
 sudo: required
@@ -203,9 +192,9 @@ script:
 
 Here are some ways that `Test engineering` easily helps with `DevOps`
 
-* `Dockerise` your test framework (better portability and ease of running).
-* Keep package-count low, and specify versions so pointless updates do not occur.
-* Ensure processes are properly "killed" at the end of test runs.
-* Use cloud service to store historical reports and other test artifacts (like screenshots)
+- `Dockerise` your test framework (better portability and ease of running).
+- Keep package-count low, and specify versions so pointless updates do not occur.
+- Ensure processes are properly "killed" at the end of test runs.
+- Use cloud service to store historical reports and other test artifacts (like screenshots)
 
 </CodeWave>

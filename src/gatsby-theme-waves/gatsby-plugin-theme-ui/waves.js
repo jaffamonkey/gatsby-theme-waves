@@ -43,8 +43,9 @@ export default {
     Sticker: {
       position: ["static", "sticky"],
       width: "100%",
-      height: ["100%", "60vh"],
+      height: ["100%", "40vh"],
       top: ["auto", "20vh"],
+      border: ["1px solid"],
     },
     // this is used to select the active scroller step
     // 0.5 selects the step that is at half the screen height

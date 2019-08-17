@@ -38,7 +38,6 @@ const Footer = ({ previous, next }) => (
           )}
         </li>
       </Flex> */}
-    )}
   </footer>
 )
 

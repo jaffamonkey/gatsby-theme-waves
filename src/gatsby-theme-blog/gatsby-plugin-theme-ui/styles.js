@@ -1,3 +1,5 @@
+import { redirectTo } from "@reach/router";
+
 export default {
   root: {
     fontFamily: `body`,
@@ -52,4 +54,7 @@ export default {
       fontSize: `1em`,
     },
   },
+  changecolor: {
+    fill: `red`
+  }
 }

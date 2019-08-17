@@ -10,14 +10,16 @@ import { CodeWave } from "gatsby-theme-waves"
 
 > **_What an `Agile` coach/consultant does, was always covered in `Quality assurance` remit (without the Lego, and bug-hunt fun days). _**
 
+Getting a shared view of the journey of a Feature through the project pipeline from the outset, will smooth the daily work. Quality assurance has unique vantage point on a project, as quality is of interest to everyone.
+
 <CodeWave>
 
 ```jsx
 const { anxiousProductOwner, startPointlessProcess, 
-        stopPointlessProcess, ignoreFeedback } = require('agile-instigator');
+        stopPointlessProcess, ignoreFeedback }
+        = require('agile-instigator');
 
-async function setup(env = 'killsAWorkingDay', 
-  configFile = './conf/teamBuilding.conf.js') {
+async function setup(env = 'killsAWorkingDay') {
     await startPointlessProcess({ env, configFile }); }
 
 async function shutdown() {
@@ -25,11 +27,10 @@ async function shutdown() {
   await ignoreFeedback(); }
 
 async function run() {
-  const transparency = process.env.BUSINESS_TRANSPARENCY_LEVEL || 10
+  const transparency = process.env.TRANSPARENCY_LEVEL || 10
   await anxiousProductOwner
     .disturbed.By('KPI').request.status('Feature B') 
     .apply.needlessPressureLevel().assert.transparency.value(5)
-    .poke('Scrummaster').assert.transparency.value(7)
     .call.meeting.type('General whining')
     .assert.teamStatus('Demoralised');
 }
@@ -45,12 +46,11 @@ async function run() {
 
 ### And it's about people
 
-Engaging with ideas such as transparency and supportive teams, will never work unless people can be themselves, not the default front we show in an office where talking in a non-natural way is standard.
+Engaging with ideas such as transparency and supportive teams, will never work unless people can be themselves.
 
-Until you give people the space to be themselves, you are simply playing the same game of old (management). 
- 
-The new project management skill (if it is management at all) is maintaining momentum with a group of individuals with complete freedom to express themselves. It's a challenge but a worthwhile one.
+Keep momentum on a project, with a group of individuals with complete freedom to express themselves.
 
+It's a challenge but a worthwhile one.
 
 ```jsx
 ### A example CD pipeline in words:
@@ -70,13 +70,11 @@ The new project management skill (if it is management at all) is maintaining mom
 
 ### CI/CD pipelines
 
-The rush to automate `CI`/`CD` pipelines can leave some behind - but for the `Product owner`, `Feature` completion is the success benchmark.
+The rush to automate CI/CD pipelines can leave some behind.
+
+For the Product owner, Feature completion is the success benchmark.
 
 But the path of developing that feature can easily get skewed in the path to buisness acceptance.
-
-Getting a shared view of the journey of a `Feature` through the project pipeline from the outset, will smooth the daily work.
-
-`Quality assurance` has unique vantage point on a project, and quality is of interest to everyone.
 
 _Remember that just because the `CI`/`CD` pipelines are working well, it does not mean it is doing the right job_ 
 
@@ -97,15 +95,11 @@ _Remember that just because the `CI`/`CD` pipelines are working well, it does no
 
 ### Definition of Done
 
-Everyone has a common idea of what sensibly indicates when a `Feature` is "Done". 
+Everyone has a common idea of what sensibly indicates when a Feature is "Done".
 
 However, everyone has also subtle variations on what they consider to be "Done".
 
-Is it worth dissecting the `DoD` to a granular level to please everyone? No - keep it pragmatic.
-
-`Feature` signoff is a moment in time, and an important benchmark for the business. 
-
-But the feature will quickly change/morph as development and new feature-related requirements appear in the `Backlog`.
+Is it worth dissecting the DoD to a granular level to please everyone? No - keep it pragmatic.
 
 ```gherkin
 Feature: As a user, 
@@ -125,9 +119,7 @@ Scenario: Testing searching (unhappy path)
 
 ### Requirements
 
-The `User story` format can be vague, so encourage the `Product owner` or `Business analyst` to adopt different approach to requirements. Sometimes people just need to be shown a direction, to change the way they work.
-
-One approach is using `Specification by example` approach to defining user stories. 
+The User story format can be vague, but there are alternatives such as Specification by example.
 
 This approach encourages people to think their user story through, rather than just high level view.
 
@@ -155,16 +147,12 @@ It provides a better basis for creating acceptance tests.
 
 ### Continual improvement
 
+Continual improvement
+
 All quality efforts, at all stages of the project pipeline, should regularly be reviewed.
 
 Every process, every way of working has potential for improvement, or perhaps even losing it alltogether.
 
-_Importantly, the team should feel they can be honest._
-
-The healthy assumption that change is not a risk, it's normality and simply illustratvie of how humans learn and adapt.
-
-In Agile space, Far too much time is spent analysing our own (human) behaviour - it's a Groundhog day.
-
-If a change to a process doesn't show signs of improving within a `Sprint`, then adapt/change.
+Importantly, the team should feel they can be honest.
 
 </CodeWave>
