@@ -9,13 +9,13 @@
     "build": "gatsby build"
   },
   "dependencies": {
-    "artillery": "^1.6.0-28",
-    "deepmerge": "^4.0.0",
+    "deepmerge": "latest",
     "gatsby": "latest",
     "gatsby-theme-blog": "latest",
+    "gatsby-plugin-sharp": "latest",
     "gatsby-theme-waves": "latest",
-    "pa11y-ci": "^2.3.0",
     "react": "latest",
-    "react-dom": "^16.8.6"
+    "react-dom": "latest",
+    "@theme-ui/presets": "latest"
   }
 }

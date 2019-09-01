@@ -24,7 +24,6 @@ $ curl -s -v -o /dev/null -I -w "%{http_code}" \
 > Host: jaffamonkey.com
 > User-Agent: curl/7.64.0
 > Accept: */*
-> 
 < HTTP/1.1 301 Moved Permanently
 < Date: Fri, 26 Jul 2019 11:49:40 GMT
 < Connection:Keep-Alive
@@ -183,7 +182,8 @@ branches:
   only:
   - travis-ci
 before_script:
-  - npm install chromedriver selenium-webdriver
+  - npm install chromedriver 
+  - npm selenium-webdriver
 script:
   - node test.js
 ```

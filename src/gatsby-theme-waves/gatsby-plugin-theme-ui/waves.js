@@ -38,7 +38,7 @@ export default {
       position: ["sticky", "static"],
       top: [0, "auto"],
       zIndex: [1, "auto"],
-      height: ["50vh", "auto"],
+      height: ["30vh", "auto"],
     },
     Sticker: {
       position: ["static", "sticky"],

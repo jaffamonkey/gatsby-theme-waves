@@ -5,7 +5,7 @@ import styles from "./styles"
 import prism from "./prism"
 
 export default merge(typography, {
-  initialColorMode: `dark`,
+  initialColorMode: `light`,
   colors,
   fonts: {
     heading: `Montserrat, sans-serif`,

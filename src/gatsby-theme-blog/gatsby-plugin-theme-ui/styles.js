@@ -1,5 +1,3 @@
-import { redirectTo } from "@reach/router";
-
 export default {
   root: {
     fontFamily: `body`,
@@ -16,7 +14,7 @@ export default {
     p: 3,
   },
   code: {
-    fontFamily: `monospace`,
+    fontFamily: `Segoe UI`,
     // from typography overrideThemeStyles
     // "h1 code, h2 code, h3 code, h4 code, h5 code, h6 code"
     fontSize: `inherit`,
@@ -54,7 +52,4 @@ export default {
       fontSize: `1em`,
     },
   },
-  changecolor: {
-    fill: `red`
-  }
 }
